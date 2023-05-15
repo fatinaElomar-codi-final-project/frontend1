@@ -1,0 +1,96 @@
+.tabmenu {
+  display: flex;
+  width: auto;
+  height: 78px;
+  padding: 0 1.85em;
+  justify-content: space-between;
+  background-color: #1e1f25;
+}
+
+.tabmenu__item {
+  flex-grow: 1;
+  z-index: 100;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  padding: 0.25em 0 0.15em; 
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  letter-spacing: 0;
+}
+
+.tabmenu__item:hover {
+  background-color: #62635e;
+  color: #fff;
+  animation: circle-in-hesitate 2.5s cubic-bezier(0.25, 1, 0.3, 1) both;
+}
+
+@keyframes circle-in-hesitate {
+  0% {
+    clip-path: circle(0%);
+  }
+  40% {
+    clip-path: circle(40%);
+  }
+  100% {
+    clip-path: circle(125%);
+  }
+}
+
+.tabicon:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.2); /* Increase the scale to make the icon bigger */
+}
+
+
+
+.tabmenu__border:hover {
+  animation: strok 0.3s ease forwards;
+}
+
+.tabicon {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  width: 2.5em; /* Increase the width to make the icon bigger */
+  height: 2.5em; /* Increase the height to make the icon bigger */
+}
+
+.tablabel {
+  font-size: 17px; /* Increase the font size to make it bigger */
+  text-align: center;
+  letter-spacing:0;
+}
+/* .tabicon-container{
+  margin:0;
+} */
+@keyframes strok {
+  100% {
+    stroke-dashoffset: 400;
+  }
+}
+
+.tabmenu__border {
+  left: 0;
+  bottom: 100%;
+  width: 10.9em;
+  height: 2.4em;
+  position: absolute;
+  clip-path: url(#menu);
+  will-change: transform;
+}
+
+.svg-container {
+  width: 0;
+  height: 0;
+}
+
+@media screen and (max-width: 870px) {
+  .tabmenu {
+    font-size: 0.9em;
+  }
+}

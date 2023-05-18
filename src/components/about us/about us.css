@@ -8,7 +8,7 @@
     border:none;
     background: transparent;
     text-decoration: none;
-    color: red;
+    color: #c8a15e;
 }
 .aboutus-title {
     padding: 10px;
@@ -57,7 +57,7 @@
       text-decoration: underline;
       cursor: pointer;
       text-decoration: none;
-      color: red;
+      color: #c8a15e;
     }
   
     .aboutus-content.collapsed {

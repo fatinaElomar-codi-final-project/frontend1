@@ -3,7 +3,7 @@ import "./App.css";
 import DishCard from "./components/dishes/dishes";
 import Menu from "./components/dishes/Menu/Menu";
 import Sidebar from "./components/layout_menu/sidebar";
-import TabBar from "./components/tabBar/tabBar";
+// import TabBar from "./components/tabBar/tabBar";
 import TableDishs from "./pages/dashboard/dishs_dashboard";
 import Dishs from "./pages/dashboard/dishs_dashboard";
 import Login from "./pages/login/login";
@@ -19,7 +19,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/table" element={<Dishs />} />
       <Route path="/" element={<Visitor />} />
-      <Route path="/tab" element={<TabBar />} />
+      {/* <Route path="/tab" element={<TabBar />} /> */}
     </Routes>
   );
 }

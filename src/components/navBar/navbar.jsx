@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import Logo from "../../images/logo.png";
+import Logo from "../../images/logo1.png";
 function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -43,8 +43,8 @@ function Nav() {
             <button  className="login-button" href="#">
               Login
             </button>
-          </li>
-          <li>
+          {/* </li>
+          <li> */}
             <button className="join-button" href="#">
               Join
             </button>

@@ -1,0 +1,114 @@
+.about-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px; /* Add padding to the main container */
+}
+.read-more{
+    border:none;
+    background: transparent;
+    text-decoration: none;
+    color: red;
+}
+.aboutus-title {
+    padding: 10px;
+    font-size: 5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px; /* Add gap between the left and right containers */
+}
+
+.about-container-left {
+    flex: 1; /* Make the left container flexible to occupy remaining space */
+    padding: 20px;
+}
+
+.about-container-right {
+    flex: 1; /* Make the right container flexible to occupy remaining space */
+    padding: 20px;
+}
+
+.about-container .about-container-right .img-about {
+    max-width: 100%;
+    height: auto;
+    animation: fade-in 1s ease-in-out; /* Add animation to the image */
+}
+
+
+.aboutus-content {
+    font-size: 2rem;
+    text-align: justify;
+    height: 80%;
+}
+.read-more {
+    display: none;
+  }
+  /* mobile view */
+
+  @media screen and (max-width: 800px) {
+    .read-more {
+      display: inline;
+      text-decoration: underline;
+      cursor: pointer;
+      text-decoration: none;
+      color: red;
+    }
+  
+    .aboutus-content.collapsed {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* Number of lines to show before truncating */
+      -webkit-box-orient: vertical;
+    }
+  }
+  
+@media screen and (max-width: 800px) {
+    .about-main-container{
+        padding: 0; /* Add padding to the main container */
+
+    }
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .aboutus-title {
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .aboutus-content {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .about-container-left {
+        width: 80%;
+        padding: 5px;
+    }
+
+    .about-container-right {
+        width: 80%;
+        padding: 5px;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

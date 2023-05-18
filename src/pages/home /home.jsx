@@ -1,32 +1,28 @@
 import React, { useState, useEffect } from "react";
+import Aboutus from "../../components/about us/about us";
+import Footer from "../../components/footer/footer";
+import Hero from "../../components/hero/hero";
 import Nav from "../../components/navBar/navbar";
-import TabBar from "../../components/tabBar/tabBar";
+import Services from "../../components/services/services";
 import "./home.css";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 768); // Change 768 to whatever breakpoint you want
-    }
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <>
+          <main>
+
       <header>
         <Nav />
       </header>
-      {isMobile && (
-        <footer>
-          <TabBar id="tabBar" />
-        </footer>
-      )}
+        <Hero />
+      </main>
+    <Aboutus/> 
+      <Services/>
+      <footer>
+        <Footer />
+      </footer>
+     
     </>
   );
 }

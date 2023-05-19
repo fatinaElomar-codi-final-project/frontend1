@@ -28,13 +28,13 @@ function Nav() {
             <Link className="a" href="#h">Home</Link>
           </li>
           <li>
-            <Link className="a" href="#h">Solutions</Link>
+            <Link className="a" href="#h">Menu</Link>
           </li>
           <li>
-            <Link className="a" href="#h">Products</Link>
+            <Link className="a" href="#h">Services</Link>
           </li>
           <li>
-            <Link className="a"  href="#">Services</Link>
+            <Link className="a"  href="#">About us</Link>
           </li>
           <li>
             <Link className="a" href="#">Contact Us</Link>

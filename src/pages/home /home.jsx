@@ -7,22 +7,19 @@ import Services from "../../components/services/services";
 import "./home.css";
 
 export default function Home() {
-
   return (
     <>
-          <main>
-
-      <header>
-        <Nav />
-      </header>
+      <main>
+        <header>
+          <Nav />
+        </header>
         <Hero />
       </main>
-    <Aboutus/> 
-      <Services/>
+      <Services />
+      <Aboutus />
       <footer>
         <Footer />
       </footer>
-     
     </>
   );
 }

@@ -7,7 +7,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import "./dishs.dashboard.css";
 
-function Treatment() {
+function Dish() {
   const [Data, setData] = useState();
   const [DataById, setDataById] = useState({
     name: "",
@@ -97,7 +97,7 @@ function Treatment() {
                   onClick={() => {
                     axios
                       .get(
-                        `${process.env.REACT_APP_URL}/treatment/${tableMeta.rowData[0]}`
+                        `${process.env.REACT_APP_URL}/Dish/${tableMeta.rowData[0]}`
                       )
                       .then((response) => {
                         setDataById(response.data.response);
@@ -129,7 +129,7 @@ function Treatment() {
                     if (result.isConfirmed) {
                       axios
                         .delete(
-                          `${process.env.REACT_APP_URL}/treatment/${tableMeta.rowData[0]}`
+                          `${process.env.REACT_APP_URL}/Dish/${tableMeta.rowData[0]}`
                         )
                         .then((response) => {
                           console.log(response);
@@ -153,7 +153,7 @@ function Treatment() {
   console.log(Id);
   const getData = () => {
     axios
-      .get(`${process.env.REACT_APP_URL}/treatment/`)
+      .get(`${process.env.REACT_APP_URL}/Dish/`)
       .then((response) => {
         console.log(response);
         setData(response.data.response);
@@ -178,7 +178,7 @@ function Treatment() {
 
   const EditData = () => {
     axios
-      .put(`${process.env.REACT_APP_URL}/treatment/${Id}`, DataEdit)
+      .put(`${process.env.REACT_APP_URL}/Dish/${Id}`, DataEdit)
       .then((res) => {
         console.log(res);
         getData();
@@ -198,13 +198,13 @@ function Treatment() {
   };
 
   return (
-    <div className="treatmentss">
+    <div className="Dishss">
       <div className="none">
-        {/* for add treatment */}
+        {/* for add Dish */}
         {visibleAdd && (
           <form>
             <div className="head-form">
-              <h2>Add Treatment</h2>
+              <h2>Add Didh</h2>
               <button
                 onClick={() => {
                   show();
@@ -229,6 +229,14 @@ function Treatment() {
               required="required"
               onChange={handelChangePost}
             />
+              <label htmlFor="description"> description </label>
+            <TextField
+              type="text"
+              name="description"
+              required="required"
+              onChange={handelChangePost}
+            />
+
 
             <Button
               variant="outlined"
@@ -242,7 +250,7 @@ function Treatment() {
                 } else {
                   axios
                     .post(
-                      `${process.env.REACT_APP_URL}/treatment/addTreatment`,
+                      `${process.env.REACT_APP_URL}/Dish/addDish`,
                       DataPost
                     )
                     .then((res) => {
@@ -253,7 +261,7 @@ function Treatment() {
                       console.log(err.message);
                     });
                   Swal.fire({
-                    title: "Treatment created",
+                    title: "Dish created",
                     icon: "success",
                     iconColor: "#d0e9e7",
                     confirmButtonColor: "#447695",
@@ -265,12 +273,12 @@ function Treatment() {
             </Button>
           </form>
         )}
-        {/* for edit treatment */}
+        {/* for edit Dish */}
         {visibleEdit && (
           <form>
             {console.log("bataaaataaaaa", DataById)}
             <div className="head-form">
-              <h2>Edit Treatment </h2>
+              <h2>Edit Dish </h2>
               <button
                 onClick={() => {
                   show();
@@ -296,16 +304,30 @@ function Treatment() {
               defaultValue={DataById.type}
               onChange={handelChangeEdit}
             />
+             <label htmlFor="price"> price</label>
+            <TextField
+              type="text"
+              name="price"
+              defaultValue={DataById.type}
+              onChange={handelChangeEdit}
+            />
+              <label htmlFor="count"> count</label>
+            <TextField
+              type="text"
+              name="count"
+              defaultValue={DataById.type}
+              onChange={handelChangeEdit}
+            />
             <Button variant="outlined" onClick={EditData}>
-              Edit Treatment
+              Edit Dish
             </Button>
           </form>
         )}
       </div>
-      <div className="treatment_table">
+      <div className="Dish_table">
         <div>
           {" "}
-          <h3 className="pagetitle">Treatment</h3>
+          <h3 className="pagetitle">Dish</h3>
         </div>
 
         <div className="table_mui">
@@ -322,7 +344,7 @@ function Treatment() {
                     showicon();
                   }}
                 >
-                  + Add Treatment
+                  + Add Dish
                 </Button>
               )
             }
@@ -333,4 +355,4 @@ function Treatment() {
   );
 }
 
-export default Treatment;
+export default Dish;

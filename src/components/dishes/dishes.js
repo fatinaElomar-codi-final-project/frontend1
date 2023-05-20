@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './dishes.css';
 import axios from 'axios';
 
 export default function DishCard() {
-  const [data, setData] = React.useState([]);
+  const [dishes, setDishes] = useState([]);
+  const [categories, setCategories] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios
       .get("http://localhost:8000/dish/", {
         headers: {
@@ -13,7 +14,21 @@ export default function DishCard() {
         },
       })
       .then((response) => {
-        setData(response.data.response);
+        setDishes(response.data.response);
+        console.log(response.data.response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    axios
+      .get("http://localhost:8000/category/", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      })
+      .then((response) => {
+        setCategories(response.data.response);
         console.log(response.data.response);
       })
       .catch((error) => {
@@ -21,40 +36,45 @@ export default function DishCard() {
       });
   }, []);
 
-  return (
-    <div className='wrapper'>
-      {data.map((data2, index) => (
-        <div className='widget' key={index}>
+  const getCategoryName = (categoryId) => {
+    const category = categories.find((cat) => cat._id === categoryId);
+    return category ? category.name : "";
+  };
+
+  const renderCards = () => {
+    const rows = [];
+    let row = [];
+    dishes.forEach((dish, index) => {
+      row.push(
+        <div className="widget" key={index}>
           <div
-            className='widget__photo'
+            className="widget__photo"
             style={{
-              background: `url("http://localhost:8000${data2.dishImage}")`,
-              backgroundSize: 'cover',
+              background: `url("http://localhost:8000${dish.dishImage}")`,
+              backgroundSize: "cover",
             }}
           ></div>
-          <div className='widget__button'>buy</div>
-          <div className='widget__details'>
-            <div className='widget__badges'>
-              <div className='widget__badge'>$$$$</div>
-              <div className='widget__badge widget__badge--rating'>4.3</div>
+          <div className="widget__button">buy</div>
+          <div className="widget__details">
+            <div className="widget__badges">
+              <div className="widget__badge widget__badge--rating">{dish.price}</div>
             </div>
-            <div className='widget__name'>{data2.name}</div>
-            <div className='widget__type'>Cafe, Bakery</div>
-            <div className='widget__info'>
-              <span>193 Fairchild Drive, Mountain View - CA</span>
-              <span>15 minute walk</span>
+            <div className="widget__name">{dish.name}</div>
+            <div className="widget__type">{dish.type}</div>
+            <div className="widget__info">
+              <span></span>
             </div>
-            <div className='widget__hidden'>
+            <div className="widget__hidden">
               <hr />
-              <table className='widget__table'>
+              <table className="widget__table">
                 <tbody>
                   <tr>
-                    <td>Type</td>
-                    <td>Brunch, Lunch, Dinner</td>
+                    <td>Ingridient : </td>
+                    <td>{dish.description}</td>
                   </tr>
                   <tr>
-                    <td>Alcohol</td>
-                    <td>Cocktails</td>
+                    <td>Category: </td>
+                    <td>{getCategoryName(dish.category_id)}</td>
                   </tr>
                   <tr>
                     <td>Credit-cards</td>
@@ -73,7 +93,17 @@ export default function DishCard() {
             </div>
           </div>
         </div>
-      ))}
-    </div>
-  );
+      );
+
+      // Check if row is full or it's the last dish
+      if ((index + 1) % 4 === 0 || index === dishes.length - 1) {
+        rows.push(<div className="row" key={index}>{row}</div>);
+        row = [];
+      }
+    });
+
+    return rows;
+  };
+
+  return <div className="wrapper">{renderCards()}</div>;
 }

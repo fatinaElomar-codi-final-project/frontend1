@@ -50,7 +50,7 @@ function Sidebar({ isMenuOpen, handleDrawerToggle, admin }) {
     {
       text: "Dishes",
       icon: <RestaurantIcon />,
-      path: "/s",
+      path: "/dishtable",
     },
     {
       text: "Categories",
@@ -79,7 +79,7 @@ function Sidebar({ isMenuOpen, handleDrawerToggle, admin }) {
     {
       text: "Dishes",
       icon: <RestaurantIcon />,
-      path: "/",
+      path: "/dishtable",
     },
     {
       text: "Categories",

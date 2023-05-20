@@ -10,11 +10,12 @@ function Admin() {
         path="/admin"
         element={
           <DashboardLayout>
+            < Dish/>
             <Outlet />
           </DashboardLayout>
         }
       >
-      <Route path="table" element={<Dish />} />
+      <Route path="/table" element={<Dish />} />
 
 
 

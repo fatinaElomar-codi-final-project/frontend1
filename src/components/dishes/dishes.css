@@ -1,83 +1,73 @@
-.wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	margin: -10px;
+.categoryy-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
   
-  .widget {
-	width: calc(25% - 20px); /* Adjust the width as needed */
-	margin: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	padding: 10px;
+  .cards {
+    max-width: 320px;
+    height: 27rem;
+    flex-basis: 20%;
+    margin: 2.5rem;
+    text-align: center;
+    font-family: arial;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
   
-  .widget__photo {
-	height: 150px; /* Adjust the height as needed */
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+  .cards-image {
+    width: 100%;
+    height: 16em;
+    object-fit: cover;
   }
   
-  .widget__button {
-	background-color: #f4f4f4;
-	padding: 5px 10px;
-	margin-top: 10px;
-	border-radius: 5px;
-	text-align: center;
-	cursor: pointer;
+  .cards-content {
+    padding: 10px;
   }
   
-  .widget__details {
-	margin-top: 10px;
+  .cards-title {
+    text-align: center;
+    margin-bottom: 20px;
   }
   
-  .widget__badges {
-	display: flex;
-	align-items: center;
-	margin-bottom: 5px;
+  .cards-price {
+    color: var(--seccondary);
+    font-size: 22px;
   }
   
-  .widget__badge {
-	padding: 2px 5px;
-	margin-right: 5px;
-	background-color: #f0f0f0;
-	border-radius: 5px;
-	font-size: 12px;
+  .cards-description {
+    margin-bottom: 10px;
   }
   
-  .widget__name {
-	font-weight: bold;
-	margin-bottom: 5px;
+  .cards-button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    transition: background-color 0.2s ease;
   }
   
-  .widget__type {
-	color: #777;
-	margin-bottom: 5px;
+  .cards-button:hover {
+    background-color: var(--accent);
   }
-  
-  .widget__info span {
-	color: rgba(0, 0, 0, 0.7);
-	font-size: 14px;
-	display: block;
-	width: 100%;
-	margin-bottom: 4px;
+  .category-pagination-container{
+    display: flex;
+    justify-content: center;
+    
   }
-  
-  .widget__info span:first-of-type {
-	margin-top: 15px;
-  }
-  
   @media (max-width: 768px) {
-	.widget {
-	  width: calc(50% - 20px);
-	}
+    .cards {
+      max-width: 100%;
+      flex-basis: 40%;
+    }
   }
   
-  @media (max-width: 576px) {
-	.widget {
-	  width: calc(100% - 20px);
-	}
+  .cards:not(:last-child) {
+    margin-right: 3rem;
   }
-  

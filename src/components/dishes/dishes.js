@@ -1,109 +1,110 @@
-import React, { useEffect, useState } from 'react';
-import './dishes.css';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Loader from "./loader.jsx";
+import image1 from "../../images/hero.jpg";
+import "./dishes.css";
+import { Pagination } from "antd";
 
-export default function DishCard() {
-  const [dishes, setDishes] = useState([]);
-  const [categories, setCategories] = useState([]);
+function Card({ title, price, description, imageUrl }) {
+  console.log(title, price, description, imageUrl);
+  const [productsInCart, setProducts] = useState(
+    JSON.parse(localStorage.getItem("shopping-cart")) || []
+  );
+  useEffect(() => {
+    localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
+  }, [productsInCart]);
+
+  const addProductToCart = (product) => {
+    const newProduct = {
+      ...product,
+      count: 1,
+    };
+    setProducts([...productsInCart, newProduct]);
+  };
+
+  return (
+    <div className="cards">
+      <img src={image1} alt={title} className="cards-image" />
+      <div className="cards-content">
+        <h2 className="cards-title">{title}</h2>
+        <p className="cards-price">{price}$</p>
+        <p className="cards-description">{description}</p>
+        <button
+          className="cards-button"
+          onClick={() =>
+            addProductToCart({ title, price, description, imageUrl })
+          }
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Category() {
+  const { categoryId } = useParams();
+  const [categoryData, setCategoryData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalDocs, setTotalDocs] = useState(0);
+  const pageSize = 10;
+
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get("http://localhost:8000/dish", {
+        params: {
+          page: currentPage,
+          pageSize,
+        },
+      });
+      console.log(response.data.response);
+      setCategoryData(response.data.response);
+      setTotalDocs(response.data.totalDocs);
+      setLoading(false);
+    } catch (error) {
+      console.log("Error fetching category data:", error);
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/dish/", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
-        },
-      })
-      .then((response) => {
-        setDishes(response.data.response);
-        console.log(response.data.response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    fetchData();
+  }, [categoryId, currentPage]);
 
-    axios
-      .get("http://localhost:8000/category/", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
-        },
-      })
-      .then((response) => {
-        setCategories(response.data.response);
-        console.log(response.data.response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  const getCategoryName = (categoryId) => {
-    const category = categories.find((cat) => cat._id === categoryId);
-    return category ? category.name : "";
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
   };
 
-  const renderCards = () => {
-    const rows = [];
-    let row = [];
-    dishes.forEach((dish, index) => {
-      row.push(
-        <div className="widget" key={index}>
-          <div
-            className="widget__photo"
-            style={{
-              background: `url("http://localhost:8000${dish.dishImage}")`,
-              backgroundSize: "cover",
-            }}
-          ></div>
-          <div className="widget__button">buy</div>
-          <div className="widget__details">
-            <div className="widget__badges">
-              <div className="widget__badge widget__badge--rating">{dish.price}</div>
-            </div>
-            <div className="widget__name">{dish.name}</div>
-            <div className="widget__type">{dish.type}</div>
-            <div className="widget__info">
-              <span></span>
-            </div>
-            <div className="widget__hidden">
-              <hr />
-              <table className="widget__table">
-                <tbody>
-                  <tr>
-                    <td>Ingridient : </td>
-                    <td>{dish.description}</td>
-                  </tr>
-                  <tr>
-                    <td>Category: </td>
-                    <td>{getCategoryName(dish.category_id)}</td>
-                  </tr>
-                  <tr>
-                    <td>Credit-cards</td>
-                    <td>Yes</td>
-                  </tr>
-                  <tr>
-                    <td>Wi-Fi</td>
-                    <td>Yes</td>
-                  </tr>
-                  <tr>
-                    <td>Outdoor Seating</td>
-                    <td>No</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+  return (
+    <div className="categoryy-container">
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          {categoryData.map((product) => (
+            <Card
+              key={product.id}
+              title={product.title}
+              price={product.price}
+              description={product.description}
+              imageUrl={product.imageUrl}
+            />
+          ))}
+          <div className="category-pagination-container">
+            <Pagination
+              current={currentPage}
+              onChange={handlePageChange}
+              total={totalDocs}
+              pageSize={pageSize}
+            />
           </div>
-        </div>
-      );
-
-      // Check if row is full or it's the last dish
-      if ((index + 1) % 4 === 0 || index === dishes.length - 1) {
-        rows.push(<div className="row" key={index}>{row}</div>);
-        row = [];
-      }
-    });
-
-    return rows;
-  };
-
-  return <div className="wrapper">{renderCards()}</div>;
+        </>
+      )}
+    </div>
+  );
 }
+
+export default Category;

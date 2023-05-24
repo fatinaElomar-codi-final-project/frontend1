@@ -10,21 +10,29 @@ import TableDishs from "./pages/dashboard/dishs_dashboard";
 import Login from "./pages/login/login";
 import Admin from "./route/admin";
 import Visitor from "./route/visitor";
+import ShoppingCart from "./components/dishes/shoppingcar";
+import Cart from "./components/dishes/defaultcart";
 
 function App() {
   return (
     <Routes>
- <Route path="/dashboard" element={<DashboardLayout />} >
-      </Route>
+            <Route path="/login" element={<Login />} />
 
-      <Route path="/tab" element={<Menupage />} />
+       <Route path="/admin" element={<Admin />}>
+       <Route path="/admin/dishtable" element={<TableDishs />}/>
+
      
+ <Route path="/admin/dashboard" element={<DashboardLayout />} />
+     </Route>
+      <Route path="/" element={<Visitor />} >
+      <Route path="/tab" element={<Menupage />} />
+      <Route path="/cart" element={<Cart />} />
 
-      <Route path="/dishtable" element={<TableDishs />}></Route>
+<Route path="/cartorder" element={<ShoppingCart/>}/>
+     
       <Route path="/dish" element={<DishCard />}></Route>
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<Visitor />} />
+   
+   </Route>
     </Routes>
   );
 }

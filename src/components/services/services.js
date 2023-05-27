@@ -8,7 +8,7 @@ import Plate from "../../images/plate.png";
 
 export default function Services() {
   return (
-  <>
+  <div className="back-services">
   <h1 className="services-big-title">Embrace the Excitement of Our Latest Offerings
 </h1>
     <div className="servicesbody">
@@ -26,7 +26,7 @@ export default function Services() {
           </p>
           <span className="newplate">New flavors</span>
         </div>
-        <div className="plate-img">
+        <div className="content-plate">
           <img
             className="plate-img1"
             src={Plate1}
@@ -53,7 +53,7 @@ export default function Services() {
       </section>
 
       <section className="main-plate1">
-        <div className="plate-img">
+        <div className="content-plate">
           <img
             className="plate-img1"
             src={Plate}
@@ -75,7 +75,7 @@ export default function Services() {
           {/* <img className="newplate" src={Offer}/>New flavors */}
 
         </div>
-        <div className="plate-img">
+        <div className="content-plate">
           <img
             className="plate-img1"
             src={Plate2}
@@ -84,6 +84,6 @@ export default function Services() {
         </div>
       </section>
     </div>
-    </>
+    </div>
   );
 }

@@ -10,45 +10,53 @@ export default function Aboutus() {
   }
 
   return (
-    <div className="about-main-container">
-      <p className="aboutus-title">About Us</p>
-      <div className="about-container">
-        <div className="about-container-right">
-          <div>
-            <img className="img-about" src={Team} alt="about team" />
+    <div className="about-principal">
+      {/* <div className="bodyaboutus"> */}
+        <div className="about-main-container">
+          <div class="imgLoader-aboutus"></div>
+
+          <div class="container-aboutus">
+            <h1 class="title-aboutus">AboutUs</h1>
+
+           
+
+            <div class="book">
+              <div class="gap"></div>
+              <div class="pages">
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+                <div class="page"></div>
+              </div>
+              <div class="flips">
+                <div class="flip flip1">
+                  <div class="flip flip2">
+                    <div class="flip flip3">
+                      <div class="flip flip4">
+                        <div class="flip flip5">
+                          <div class="flip flip6">
+                            <div class="flip flip7"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="about-container-left">
-          <p className={`aboutus-content ${isExpanded ? "expanded" : ""}`}>
-            Welcome to Wizard Server, your destination for fast and delicious
-            food on the go! We pride ourselves on using only the finest
-            ingredients to deliver exceptional taste and quality. Our menu
-            offers a variety of options, including juicy burgers, mouthwatering
-            sandwiches, crispy fries, and refreshing salads. We prioritize speed
-            and efficiency without compromising on flavor, ensuring your order
-            is prepared swiftly and accurately.
-            {isExpanded ? (
-              <>
-                At Wizard Server, we believe in providing fast food that is also
-                mindful of dietary preferences, offering vegetarian, vegan, and
-                gluten-free choices. We prioritize customer satisfaction and
-                strive to create a welcoming atmosphere where you can enjoy your
-                meal and leave with a smile. Join us today and experience the
-                perfect blend of fast service and delectable food. Come and
-                discover why Wizard Server is more than just a fast food
-                restaurant – we're your trusted partner in delivering tasty,
-                convenient, and satisfying meals whenever you need them.
-                <button className="read-more" onClick={toggleReadMore}>
-                  Read Less
-                </button>
-              </>
-            ) : (
-              <button className="read-more" onClick={toggleReadMore}>
-                Read More
-              </button>
-            )}
-          </p>
-        </div>
+      {/* </div> */}
+      <div class="aboutus-description">
+        Welcome to Wizerdserver, where passion for food meets exceptional
+        dining. Our expert chefs create exquisite dishes using the finest
+        ingredients sourced locally. Enjoy a warm and inviting ambiance as our
+        friendly staff ensures a remarkable experience. We value sustainability
+        and community, hosting special events that celebrate food and culture.
+        Join us for a memorable culinary journey at Wizerdserver. Book your
+        table today.
       </div>
     </div>
   );

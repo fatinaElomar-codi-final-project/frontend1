@@ -1,3 +1,4 @@
+import { Stack } from "@mui/system";
 import React, { useEffect } from "react";
 import Aboutus from "../../components/about us/about us.jsx";
 import Footer from "../../components/footer/footer.jsx";
@@ -5,24 +6,34 @@ import Hero from "../../components/hero/hero.jsx";
 import Nav from "../../components/navBar/navbar";
 import NewdishSlider from "../../components/newdishes/newdishs";
 import Services from "../../components/services/services";
+import Server from "../server/server.jsx";
 import "./home.css";
 
 export default function Home() {
-
-
   return (
     <>
-          <header>
-          <Nav />
-        </header>
-        <Hero />
-  <main className="home-main">  
-        {/* <Services /> */}
+      <header>
+        <Nav />
+      </header>
+      <Hero />
+
+      <Stack
+        direction="column"
+        alignItems="center"
+        sx={{ animation: "fadeIn 1s ease-in" }} // Add animation
+      >
         <NewdishSlider />
-      <Aboutus />
-      </main>
-     
-        
+      </Stack>
+      <div className="space"></div> {/* Add space */}
+
+      <Services id="idservices" />
+      <div className="space"></div> {/* Add space */}
+
+    <Server/>
+      <div className="space"></div> {/* Add space */}
+
+      <Aboutus style={{ margin: "0" }} />
+
       <footer>
         <Footer />
       </footer>

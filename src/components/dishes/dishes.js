@@ -36,7 +36,7 @@ function Card({ title, price, description, imageUrl }) {
             addProductToCart({ title, price, description, imageUrl })
           }
         >
-          Add to Cart
+          Add
         </button>
       </div>
     </div>

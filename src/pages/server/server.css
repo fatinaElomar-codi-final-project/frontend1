@@ -1,0 +1,41 @@
+.server-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+.icons-main-title{
+  text-align: center;
+  padding-bottom:25px; 
+}
+.icons-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow icons to wrap to next line if necessary */
+  justify-content: space-around;  
+  align-items: center; /* Center items vertically */
+  width: 80%;
+  padding: 14px;
+}
+
+.icon-content {
+  padding-bottom:11px;
+  text-align: center; /* Center icon content */
+  margin: 10px;
+}
+
+.icon-content:hover {
+  border-bottom: 2px solid #c8a15e; /* Add bottom border on hover */
+}
+
+.icons-img {
+  width: 56px;
+  height: 59px;
+  opacity: 0.85; /* Use decimal values for opacity */
+}
+@media(max-width: 600px){
+  .icons-container {
+    flex-direction: row;
+   
+  }
+ 
+ 
+}

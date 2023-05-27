@@ -6,28 +6,27 @@ import {
   FaYoutube,
   FaWhatsapp,
 } from "react-icons/fa";
-import Logo from "../../images/logo3.png";
+import Logo from "../../images/logo1.png";
 import "./footer.css";
 
 export default function Footer() {
   return (
     <div className="footer-body">
       <div className="footer-center">
+        <div>
+          <h1 className="footer-title">
+            <b>Services</b>
+          </h1>
+
           <ul className="footer-list">
-            <h1 className="footer-title">
-              <b>Services</b>
-            </h1>
             <li>
               <a className="footer-links" href="/culinary-craftsmanship">
                 Wi-Fi
               </a>
-            </li>
-            <li>
+
               <a className="footer-links" href="/sensory-food-experience">
                 PlayPlaces & Parties
               </a>
-            </li>
-            <li>
               <a className="footer-links" href="/sensory-food-experience">
                 Mobile Order
               </a>
@@ -36,16 +35,18 @@ export default function Footer() {
               <a className="footer-links" href="/sensory-food-experience">
                 Family Fun Hub
               </a>
-            </li>
-            <li>
               <a className="footer-links" href="/sensory-food-experience">
                 Services Overview
               </a>
             </li>
           </ul>
+        </div>
+        <div>
+            <img className="footer-logo" src={Logo} alt="LogoImage" />
+          </div>
         <div className="footer-right">
-          <img className="footer-logo" src={Logo} alt="LogoImage" />
-
+        
+          <div className="footer-content">
           <h1 className="footer-title">Contact Us</h1>
           <div className="footer-social-icons">
             <a
@@ -89,7 +90,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
+      </div>
       <div className="footer-bottom">
         <p className="footer-p footer-bottom-p">
           © 2022 - 2023 WizardServer. All Rights Reserved

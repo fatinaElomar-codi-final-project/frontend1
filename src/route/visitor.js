@@ -5,7 +5,7 @@ import Home from "../pages/home /home"
 function Visitor(){
 return(
     <>
-   <Home/>
+  
     <Outlet/>
     </>
 )

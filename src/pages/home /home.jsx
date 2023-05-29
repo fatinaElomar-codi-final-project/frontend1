@@ -12,10 +12,9 @@ import "./home.css";
 export default function Home() {
   return (
     <>
-      <header>
-        <Nav />
-      </header>
+   
       <Hero />
+      <div className="space"></div> {/* Add space */}
 
       <Stack
         direction="column"
@@ -34,9 +33,7 @@ export default function Home() {
 
       <Aboutus style={{ margin: "0" }} />
 
-      <footer>
-        <Footer />
-      </footer>
+    
     </>
   );
 }

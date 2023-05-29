@@ -33,8 +33,8 @@ footer{
 
 .footer-links {
   text-decoration: none;
-  font-size: 15px;
-  color: rgb(255, 255, 255);
+  font-size: 19px; 
+   color: rgb(255, 255, 255);
   font-family: "Segoe UI";
 }
 
@@ -84,8 +84,8 @@ footer{
   row-gap: 10px;
   display: flex;
   color: #ebdcdc;
-  font-size: 0.67rem;
-  font-family: "Segoe UI";
+  font-size: 1.3rem;
+    font-family: "Segoe UI";
 }
 .footer-bottom {
   display: flex;
@@ -95,7 +95,7 @@ footer{
 }
 
 .footer-bottom-p {
-  padding: 13px;
+  padding: 33px;
 }
 @media screen and (max-width: 800px) {
   .footer-body {
@@ -103,7 +103,7 @@ footer{
     align-items: center;
     justify-content: space-around;
     width: auto;
-    height: 222px;
+    height: 279px;
        border-top: 1px solid #4c4c4c;
   }
 

@@ -29,12 +29,11 @@ function Nav() {
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
-            <Link className="a" href="#h">
-              Home
+<Link className="a" to="/">Home
             </Link>
           </li>
           <li>
-            <Link className="a" href="#h">
+            <Link className="a" to="/cart">
               Menu
             </Link>
           </li>
@@ -66,7 +65,7 @@ function Nav() {
             </section></li>
         </ul>
        
-        <a className="buyicon" href="#" ><i class="ri-shopping-basket-fill"></i></a>
+        <Link className="buyicon" to="/cart" ><i class="ri-shopping-basket-fill"></i></Link>
       </nav>
     </div>
   );

@@ -11,8 +11,8 @@
 
 nav  {
   /* align-items: center; */
-  height: 7rem;
-  /* background-color: black; */
+  height: 6rem;
+  background-color: black;
   position: relative;
   display: flex;
   justify-content: space-around;
@@ -32,7 +32,6 @@ nav  {
   display: flex;
   list-style: none;
   gap: 1.5rem;
-  font-size: 1rem;;
   width: 88vw;
   padding: 0 0.7vw;
   align-items: center;
@@ -41,6 +40,7 @@ nav  {
 .nav-links li a {
   text-decoration: none;
   margin: 0 0.7vw;
+  font-size: 25px;
   color: #d6cdcd;
 }
 .nav-links li .a:hover {
@@ -50,8 +50,8 @@ nav  {
   position: relative;
 }
 .logo-nav {
-  width: 91px;
-  height: 66px;
+  width: 106px;
+  height: 78px;
 }
 .loginbtn {
   display: flex;
@@ -178,6 +178,7 @@ nav  {
     z-index: 1;
     width: 100vw;
 font-size: 1rem;
+top: 0;
     position: fixed;
   }
   .custom1__search {
@@ -286,4 +287,17 @@ font-size: 1rem;
 }
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 20px;
+  display: none;
+  z-index: 9999;
 }

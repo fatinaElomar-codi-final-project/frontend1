@@ -61,7 +61,7 @@ export default function Hero() {
         </Slider>
         <div className="hero-content">
           <h1 className="hero-text">
-            <span className="hero-text-first-span" style={{fontSize: '65px'}}>Order</span><span className="herospan">Best Food</span>
+            <span className="hero-text-first-span" style={{fontSize: '130px'}}>Order</span><span className="herospan">Best Food</span>
           </h1>
           <p className="hero-sub">
             {" "}

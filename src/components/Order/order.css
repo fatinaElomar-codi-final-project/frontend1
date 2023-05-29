@@ -31,11 +31,17 @@
   justify-content: space-between;
 }
 .p-c-bg {
-  background-color: #c8a15e;
+  background-color: beige;
   padding: 16px;
   margin: 8px;
-  border-radius: 10px;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 10px; */
+  transition: background-color 0.3s ease;
 }
+
+.p-c-bg:hover {
+  box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 20%);}
+
 .add-cart {
   text-decoration: none;
   color: black;
@@ -43,9 +49,12 @@
   padding: 1px;
 }
 .add-cart:hover {
-  color: beige;
+  color: rgb(255, 4, 4);
 }
 .searchbar{
   display: flex;
   flex-direction: row;
+}
+select{
+  box-shadow: none !important;
 }

@@ -12,6 +12,15 @@
 
   }
 
+  .css-11mde6h-MuiPaper-root {
+    margin-left: 318px;
+  }
+
+  .treatmentss{
+
+    display:flex;
+  flex-direction: flex-end ;
+  }
   .dish-form.show {
     opacity: 1;
     max-height: 1000px;
@@ -98,6 +107,10 @@
   table {
     width: 100%;
     border-collapse: collapse;
+  }
+  .table_mui{
+    margin-left: 330px;
+    width: 100%;
   }
 
   th, td {

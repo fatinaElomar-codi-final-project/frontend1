@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./order.css";
 import OneOrderCard from "./oneOrderCards";
+import {Modal } from "react-bootstrap";
 export default function OrderCard(product) {
   const [data1, setData1] = useState([]);
 
@@ -51,7 +52,20 @@ export default function OrderCard(product) {
   <OneOrderCard product={product} index={index} key={index}/>
   ))}
 </div>
+<Modal.Dialog >
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
 
+        <Modal.Body>
+          <p>Modal body text goes here.</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <button className="btn">Close</button>
+          <button  className="btn">Save changes</button>
+        </Modal.Footer>
+      </Modal.Dialog>
     </div>
   );
 }

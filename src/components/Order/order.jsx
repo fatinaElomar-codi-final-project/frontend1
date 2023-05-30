@@ -8,8 +8,9 @@ export default function Order(product) {
       <div className="row-order-1">
        
             <div className="order-col-md-4">
-              <div className="order-product-1">
-                <OrderCard order={product}/>
+              <div className="order-product-1"  style={{ minHeight: "calc(100vh - 96px)" }} >
+              <OrderCard order={product} />
+
               </div>
             </div>
        

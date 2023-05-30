@@ -53,6 +53,7 @@ const OneOrderCard = (props) => {
     <div className="flex-container-order">
     <h1>Price: {parseFloat(props.product.price) * quantity}</h1>
     </div>
+    
   </div>
   )
 }

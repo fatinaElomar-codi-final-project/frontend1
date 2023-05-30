@@ -7,11 +7,6 @@ import Dish from "../pages/dashboard/dishs_dashboard";
 function Admin() {
   return (
     <>
-    
-     
-
-
-
      <DashboardLayout/>
      <Outlet/>
     </>

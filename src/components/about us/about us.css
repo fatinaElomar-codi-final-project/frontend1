@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   background-color: #c8a15e;
-  height: 251px;
-  flex-direction: row;
+  height: 358px;
+    flex-direction: row;
   padding: 43px;
   align-items: center;
 }

@@ -1,3 +1,4 @@
+///////////////////table
 import React, { useEffect, useState } from "react";
 import {
   Button,
@@ -49,7 +50,7 @@ const AddresourcesButton = () => {
     }));
   };
 
-
+///
   const handleAddClick = (e) => {
     e.preventDefault();
     console.log(formData);

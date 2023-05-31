@@ -16,7 +16,7 @@ const OneOrderCard = (props) => {
       <h1 className="name-product">{props.product.name}</h1>
       <img
         className="img-fluid"
-        src={`http://localhost:8000${props.product.dishImage}`}
+        src={`https://restaurant-backend-1.onrender.com${props.product.dishImage}`}
         alt="food"
         style={{
           height: "150px",
@@ -61,7 +61,7 @@ const OneOrderCard = (props) => {
   </Modal.Header>
   <img
         className="img-fluid"
-        src={`http://localhost:8000${props.product.dishImage}`}
+        src={`https://restaurant-backend-1.onrender.com${props.product.dishImage}`}
         alt="food"
         style={{
           height: "100px",

@@ -16,7 +16,7 @@ export default function Menupage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/category/", {
+      .get("https://restaurant-backend-1.onrender.com/category/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
@@ -102,7 +102,7 @@ export default function Menupage() {
             <div className="menu-content2">
               <img
                 className="logo-menu2"
-                src={`http://localhost:8000${data3.CategoryImage}`}
+                src={`https://restaurant-backend-1.onrender.com${data3.CategoryImage}`}
                 alt="category"
               />
               <p className="menu-category-title">{data3.name}</p>

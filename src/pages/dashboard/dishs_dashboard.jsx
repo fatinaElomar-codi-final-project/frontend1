@@ -54,7 +54,7 @@ function Tables() {
   const handleEditDialogSave = (id) => {
     // handle save logic here
     axios
-      .put(`http://localhost:5000/dish/${id}`, editingData, {
+      .put(`https://restaurant-backend-1.onrender.com/dish/${id}`, editingData, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
@@ -86,7 +86,7 @@ function Tables() {
   const handleDeleteClick = (id) => {
     // handle delete logic here
     axios
-      .delete(`http://localhost:8000/dish/${id}`, {
+      .delete(`https://restaurant-backend-1.onrender.com/dish/${id}`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
@@ -115,7 +115,7 @@ function Tables() {
 
   const fetching = () => {
     axios
-      .get("http://localhost:8000/dish", {
+      .get("https://restaurant-backend-1.onrender.com/dish", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
@@ -178,7 +178,7 @@ function Tables() {
                   <TableCell>{row.count}</TableCell>
                   <TableCell>{row.category_id.name}</TableCell>
                   <TableCell>
-                  <img src={`http://localhost:8000${row.dishImage}`} alt="dish" style={{width:"100px"}}/>
+                  <img src={`https://restaurant-backend-1.onrender.com${row.dishImage}`} alt="dish" style={{width:"100px"}}/>
                   </TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleEditClick(row)}>

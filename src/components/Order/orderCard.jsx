@@ -25,7 +25,7 @@ export default function OrderCard(product) {
   // ////////////////////////////////////////
   useEffect(() => {
     axios
-      .get("http://localhost:8000/dish/", {
+      .get("https://restaurant-backend-1.onrender.com/dish/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },

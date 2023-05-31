@@ -55,7 +55,7 @@ const AddresourcesButton = () => {
     e.preventDefault();
     console.log(formData);
     axios
-      .post("http://localhost:8000/dish/add", formData)
+      .post("https://restaurant-backend-1.onrender.com/dish/add", formData)
       .then((response) => {
         console.log(response);
         setFormData({
@@ -81,7 +81,7 @@ const AddresourcesButton = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/dish/", {
+      .get("https://restaurant-backend-1.onrender.com/dish/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },
@@ -102,7 +102,7 @@ const AddresourcesButton = () => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8000/category/", {
+      .get("https://restaurant-backend-1.onrender.com/category/", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
         },

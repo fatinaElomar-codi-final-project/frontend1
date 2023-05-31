@@ -106,7 +106,7 @@
 }
 
 .page {
-  width: 150px;
+  width: 130px;
   height: 244px;
   background-color: #bbb;
   position: absolute;
@@ -1058,14 +1058,17 @@
     transform: rotateY(180deg);
   }
 }
-@media (max-width: 768px) {
+@media (max-width:750px
+) {
+
   .about-principal {
     flex-direction: column;
     height: 368px;
+    overflow: hidden;
   }
   .container-aboutus {
     position: relative;
-    width: 415px;
+    width: 295px;
     bottom: 57px;
   }
   .aboutus-description {

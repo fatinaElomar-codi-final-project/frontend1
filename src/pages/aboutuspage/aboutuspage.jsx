@@ -107,6 +107,7 @@ export default function Aboutuspage() {
         <h1 class="title">our team</h1>
         <div class="ourteam_wrapper">
           <div class="team-1 team">
+            {/* ////////////////////////////////////// */}
             <div class="team_member">
               <img src="https://www.thestaffcanteen.com/public/js/tinymce/plugins/moxiemanager/data/files/Handsome%20Chefs/18%20%40tomaikens.jpg" alt="Team_Image" />
             </div>
@@ -117,6 +118,7 @@ export default function Aboutuspage() {
               <img src="https://img.freepik.com/premium-photo/portrait-handsome-chef_107420-17703.jpg?w=2000" alt="Team_Image" />
             </div>
           </div>
+          {/* ///////////////////////////////////////////////// */}
           <div class="team-2 team">
             <div class="team_member">
               <img src="https://thumbs.dreamstime.com/b/female-chef-19271464.jpg" alt="Team_Image" />

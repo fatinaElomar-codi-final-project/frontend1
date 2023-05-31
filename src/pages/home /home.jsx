@@ -1,32 +1,40 @@
-import React, { useState, useEffect } from "react";
+import { Stack } from "@mui/system";
+import React, { useEffect } from "react";
+import Aboutus from "../../components/about us/about us.jsx";
+import Footer from "../../components/footer/footer.jsx";
+import Hero from "../../components/hero/hero.jsx";
 import Nav from "../../components/navBar/navbar";
-import TabBar from "../../components/tabBar/tabBar";
+import NewdishSlider from "../../components/newdishes/newdishs";
+import Services from "../../components/services/services";
+import Server from "../server/server.jsx";
 import "./home.css";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    function handleResize() {
-      setIsMobile(window.innerWidth < 768); // Change 768 to whatever breakpoint you want
-    }
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <>
-      <header>
-        <Nav />
-      </header>
-      {isMobile && (
-        <footer>
-          <TabBar id="tabBar" />
-        </footer>
-      )}
+   
+      <Hero />
+      <div className="space"></div> {/* Add space */}
+
+      <Stack
+        direction="column"
+        alignItems="center"
+        sx={{ animation: "fadeIn 1s ease-in" }} // Add animation
+      >
+
+        <NewdishSlider />
+      </Stack>
+      <div className="space"></div> {/* Add space */}
+
+      <Services id="idservices" />
+      <div className="space"></div> {/* Add space */}
+
+    <Server/>
+      <div className="space"></div> {/* Add space */}
+
+      <Aboutus style={{ margin: "0" }} />
+
+    
     </>
   );
 }

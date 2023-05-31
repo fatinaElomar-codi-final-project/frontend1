@@ -1,0 +1,17 @@
+.space {
+  margin-bottom: 8%; /* Adjust the margin-bottom value to add space */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the relevant components */
+.NewdishSlider {
+  animation: fadeIn 1s ease-in;
+}

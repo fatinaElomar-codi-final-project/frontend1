@@ -1,7 +1,7 @@
 import React from "react";
-import Sidebar from "../sideBar/sideBar";
-import Header from "../header/header";
 import { Box } from "@mui/material";
+import Sidebar from "./sidebar";
+import BasicTextFields from "./header";
 
 export default function DashboardLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }) {
           width: `calc(100% - 318px)`,
         }}
       >
-        <Header
+        <BasicTextFields
           isMenuOpen={isMenuOpen}
           handleDrawerToggle={handleDrawerToggle}
         />

@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-
+import"./order.css"
+import {Modal } from "react-bootstrap";
 const OneOrderCard = (props) => {
   const [ quantity, setquantity] = useState(1)
-//   const getCategoryName = (categoryId) => {
-//     const category = data.find((category) => category._id === categoryId);
-//     return category ? category.name : "";
-//   };
+  const [show, setShow] = useState(false);
+  const handleClose= () => setShow(false);
+  const handleShow =() => setShow (true);
   const handleChangeCategory = (e) => {
     console.log(e.target.value);
   };
   return (
     <div className="order-col-md-4" >
-    <div className="p-c-bg">
+    <div className="p-c-bg" >
+      <div className="show-card" onClick={handleShow}>
       <h1 className="name-product">{props.product.name}</h1>
       <img
         className="img-fluid"
@@ -22,7 +23,7 @@ const OneOrderCard = (props) => {
           width: "200px",
           borderRadius: "10px",
         }}
-      />
+      /></div>
       <div className="flex-container">
         <div className="ww_100">
           <p>Categories:</p>
@@ -53,7 +54,31 @@ const OneOrderCard = (props) => {
     <div className="flex-container-order">
     <h1>Price: {parseFloat(props.product.price) * quantity}</h1>
     </div>
-    
+<div className="flex-container-show">
+    <Modal show={show} centered style={{ backgroundColor: "beige",border:"2px solid black", display: "flex", alignItems: "center", justifyContent: "center" ,zIndex:"999",width:"200px"}}>
+  <Modal.Header closeButton>
+    <Modal.Title>{props.product.name}</Modal.Title>
+  </Modal.Header>
+  <img
+        className="img-fluid"
+        src={`http://localhost:8000${props.product.dishImage}`}
+        alt="food"
+        style={{
+          height: "100px",
+          width: "150px",
+          borderRadius: "10px",
+        }}
+      />
+  <Modal.Body>
+    <p style={{fontSize:"20px"}}>{props.product.description}</p>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <button className="btn" onClick={handleClose} >Close</button>
+  </Modal.Footer>
+</Modal>
+</div>
+
   </div>
   )
 }

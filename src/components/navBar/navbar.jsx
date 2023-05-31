@@ -38,12 +38,12 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link className="a" href="#h">
+            <Link className="a" to="/Newdishs">
               Services
             </Link>
           </li>
           <li>
-            <Link className="a" href="#">
+            <Link className="a" to="/aboutuspage">
               About us
             </Link>
           </li>

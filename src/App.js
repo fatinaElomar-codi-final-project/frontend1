@@ -9,18 +9,16 @@ import TableDishs from "./pages/dashboard/dishs_dashboard";
 import Login from "./pages/login/login";
 import Admin from "./route/admin";
 import Visitor from "./route/visitor";
-import Cart from "./components/Order/orderCard";
 import Home from "./pages/home /home";
 import ArrivalhomePage from "./components/newdishes/newdishs";
-import Product from "./components/newdishes/newdishCard";
-import Dish from "./pages/dashboard/dishs_dashboard";
-import { Card } from "antd";
 import Order from "./components/Order/order";
-import OrderCard from "./components/Order/orderCard";
-
+import Newdishs from "./components/newdishes/newdishs";
+import Aboutuspage from "./pages/aboutuspage/aboutuspage";
 function App() {
   return (
     <Routes>
+      <Route path="/Newdishs" component={<Newdishs/>} />
+
       <Route path="/admin" element={<Admin />}>
         <Route path="/admin/dishtable" element={<TableDishs />} />
         <Route path="/admin/dashboard" element={<DashboardLayout />} />
@@ -28,6 +26,7 @@ function App() {
 
       <Route path="/" element={<Visitor />}>
       <Route path="/cart" element={<Order />} />
+      <Route path="/aboutuspage" element={<Aboutuspage/>} />
 
         <Route path="/" element={<Home />} />
         <Route path="/tab" element={<Menupage />} />
@@ -35,7 +34,6 @@ function App() {
         <Route path="/dish" element={<DishCard />} />
         <Route path="/scroll" element={<ArrivalhomePage />} />
      </Route>
-
     </Routes>
   );
 }

@@ -21,6 +21,7 @@ export default function Home() {
         alignItems="center"
         sx={{ animation: "fadeIn 1s ease-in" }} // Add animation
       >
+
         <NewdishSlider />
       </Stack>
       <div className="space"></div> {/* Add space */}

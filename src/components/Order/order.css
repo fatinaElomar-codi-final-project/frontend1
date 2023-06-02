@@ -7,12 +7,13 @@
 }
 .row-order {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 1rem; */
+    width: 83%;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .ww_100 {
   display: flex;
@@ -40,7 +41,8 @@
 }
 
 .p-c-bg:hover {
-  box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 20%);}
+  box-shadow: 2px 2px 10px 1px rgb(0 0 0 / 20%);
+  cursor: pointer;}
 
 .add-cart {
   text-decoration: none;
@@ -54,7 +56,137 @@
 .searchbar{
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
 }
 select{
   box-shadow: none !important;
+}
+
+.back-form{
+  width: 100%;
+  height: 100vh;
+   background-color: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top:0;
+  left: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Add the following styles to your CSS file */
+/*  */
+h1.name-product {
+  font-size: 25px;
+  text-align: center;
+  padding: 12px;
+}
+
+.btn-modal{
+  background-color: #ccc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content{
+  padding: 20px;
+}
+.food-c-category{
+  display: flex;
+}
+/* Rest of your existing CSS styles... */
+.modelLeft{
+display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .dishesFood {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 30px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .Navlink-cart {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 9px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .Navlink-cart.active {
+    color: #c8a15e;
+    width: 213px;
+    border: 2px solid #877d7d;
+    /* gap: 20px; */
+    margin: 8px;
+  }
+  img-fluid{
+    max-Width: 100%;
+       height:240px;
+     borderRadius: 10px;
+  }
+  .Navlink-cart:hover {
+    transform: scale(1.1);
+    background-color: black;
+  }
+  .cart-title2{
+    color: #ca6d01;
+    width: 75%;    
+      text-align: center;
+  }.cart-title1{
+    font-size: 84px;
+    text-align: center;
+    padding: 10px;
+}
+@media(max-width:750px){
+ 
+    .dishesFood {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      font-size: 14px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      flex-direction: row;
+  }
+
+.searchbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+}
+.Navlink-cart.active {
+  color: #c8a15e;
+  width: auto;
+  border: 2px solid #877d7d;
+  margin: 8px;
+}
+.cart-title2 {
+  width: auto;
+  font-size: 16px;
+}
+.modal-content {
+  padding: 20px;
+  width: 226px;}
+  .modelLeft {
+   display: flex;
+    flex-direction: column;}
+ .img-fluid{
+    height: 155px;
+    border-radius: 10px;}
+   
+
 }

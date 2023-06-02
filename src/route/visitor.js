@@ -8,7 +8,7 @@ return(
 <>
   <Nav/>
  <Outlet/>
- <Footer/>
+ <Footer />
 
     </>
 )

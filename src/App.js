@@ -14,26 +14,33 @@ import ArrivalhomePage from "./components/newdishes/newdishs";
 import Order from "./components/Order/order";
 import Newdishs from "./components/newdishes/newdishs";
 import Aboutuspage from "./pages/aboutuspage/aboutuspage";
+import OrderCard from "./components/Order/orderCard";
+import Cartpage from "./pages/cartpage/cartpage";
+import ProductCarouselComponent from "./components/product-carousal/products_carousel";
 function App() {
   return (
     <Routes>
-      <Route path="/Newdishs" component={<Newdishs/>} />
+      <Route path="/Newdishs" component={<Newdishs />} />
+      <Route path="/cartpage" element={<Cartpage />} />
+      <Route path="/productcarousel" element={<ProductCarouselComponent />} />
 
+      
       <Route path="/admin" element={<Admin />}>
         <Route path="/admin/dishtable" element={<TableDishs />} />
         <Route path="/admin/dashboard" element={<DashboardLayout />} />
       </Route>
 
       <Route path="/" element={<Visitor />}>
-      <Route path="/cart" element={<Order />} />
-      <Route path="/aboutuspage" element={<Aboutuspage/>} />
+        <Route path="/cart" element={<Order />} />
 
+        <Route path="/aboutuspage" element={<Aboutuspage />} />
+        <Route path="/Drinks" element={<OrderCard category="Drinks" />} />
         <Route path="/" element={<Home />} />
         <Route path="/tab" element={<Menupage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dish" element={<DishCard />} />
         <Route path="/scroll" element={<ArrivalhomePage />} />
-     </Route>
+      </Route>
     </Routes>
   );
 }

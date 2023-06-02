@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import "remixicon/fonts/remixicon.css";
 import Logo from "../../images/logo1.png";
+
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -10,13 +11,17 @@ function Nav() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <div className="body">
       <nav>
         <div className="logoparent">
-          <img className="logo-nav" src={Logo} alt="Logo" />{" "}
+          <img className="logo-nav" src={Logo} alt="Logo" />
         </div>
-        {/* //////////////////////////////////// */}
+
         <div
           className={`hamburger ${menuOpen ? "toggle" : ""}`}
           onClick={toggleMenu}
@@ -25,34 +30,35 @@ function Nav() {
           <div className="line2"></div>
           <div className="line3"></div>
         </div>
-        {/* Make sure the "nav-links" class is always present */}
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li>
-<Link className="a" to="/">Home
+            <Link className="a" to="/" onClick={closeMenu}>
+              Home
             </Link>
           </li>
           <li>
-            <Link className="a" to="/cart">
+            <Link className="a" to="/cart" onClick={closeMenu}>
               Menu
             </Link>
           </li>
           <li>
-            <Link className="a" to="/Newdishs">
+            <a href="/#services" className="a" onClick={closeMenu}>
               Services
-            </Link>
+            </a>
           </li>
           <li>
-            <Link className="a" to="/aboutuspage">
+            <Link className="a" to="/aboutuspage" onClick={closeMenu}>
               About us
             </Link>
           </li>
           <li>
-            <Link className="a" href="#">
+            <a href="#footer" className="a" onClick={closeMenu}>
               Contact Us
-            </Link>
+            </a>
           </li>
-         <li> <section className="menu__right">
+          <li>
+            <section className="menu__right">
               <a className="loginbtnicon" href="#">
                 login<i class="ri-login-box-fill"></i>
               </a>
@@ -62,10 +68,13 @@ function Nav() {
                   <i class="ri-search-line"></i>
                 </span>
               </div>
-            </section></li>
+            </section>
+          </li>
         </ul>
-       
-        <Link className="buyicon" to="/cart" ><i class="ri-shopping-basket-fill"></i></Link>
+
+        <Link className="buyicon" to="/cart">
+          <i class="ri-shopping-basket-fill"></i>
+        </Link>
       </nav>
     </div>
   );

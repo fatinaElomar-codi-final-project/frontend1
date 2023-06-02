@@ -26,7 +26,7 @@ export default function Home() {
       </Stack>
       <div className="space"></div> {/* Add space */}
 
-      <Services id="idservices" />
+      <Services />
       <div className="space"></div> {/* Add space */}
 
     <Server/>

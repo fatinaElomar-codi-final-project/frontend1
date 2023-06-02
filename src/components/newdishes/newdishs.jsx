@@ -51,7 +51,7 @@ const arrayArrival = [
 
 export default function Newdishs() {
   return (
-    <section className="pt_0">
+    <section className="pt_0" id='services'>
     <Container>
       <Row>
         <Col className="text-center mb-4">

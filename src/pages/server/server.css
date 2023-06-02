@@ -18,6 +18,7 @@
 
 .icon-content {
   padding-bottom:11px;
+  border-bottom: 2px solid #ffffff;
   text-align: center; /* Center icon content */
   margin: 10px;
 }

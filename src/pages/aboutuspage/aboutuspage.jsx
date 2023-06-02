@@ -102,7 +102,6 @@ export default function Aboutuspage() {
           </div>
         </div>
       </div>
-
       <div class="ourteam" id="ourteam">
         <h1 class="title">our team</h1>
         <div class="ourteam_wrapper">

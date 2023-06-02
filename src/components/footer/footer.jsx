@@ -11,7 +11,7 @@ import "./footer.css";
 
 export default function Footer() {
   return (
-    <div className="footer-body">
+    <div className="footer-body"id="footer">
       <div className="footer-center">
         <div>
           <h1 className="footer-title">

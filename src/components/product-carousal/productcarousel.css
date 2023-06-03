@@ -39,8 +39,31 @@
   color: #888;
 }
 
-.product-carousel .slick-dots li button::before {
+.product-carousel .slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-carousel .slick-dots li {
+  margin: 0 5px;
+}
+
+.product-carousel .slick-dots li button {
   font-size: 12px;
+  color: #888;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.product-carousel .slick-dots li button::before {
+  content: "•";
+  font-size: 18px;
   color: #888;
 }
 
@@ -48,48 +71,36 @@
   color: #000;
 }
 
-.product-carousel .slick-prev,
-.product-carousel .slick-next {
-  font-size: 12px; /* Adjust the font size as per your design */
-  color: rgb(39, 39, 17);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-}
-
-.product-carousel .slick-prev {
-  left: 0;
-}
-
-.product-carousel .slick-next {
-  right: 0;
-}
-
-.product-carousel .slick-prev:before,
-.product-carousel .slick-next:before {
-  font-family: "Font Awesome 5 Free";
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.product-carousel .slick-prev:before {
-  content: "\f104"; /* Font Awesome icon code for left arrow */
-}
-
-.product-carousel .slick-next:before {
-  content: "\f105"; /* Font Awesome icon code for right arrow */
-}
-
 .title-c-product-carousel{
   text-align: center;
   font-size: 2rem;
   color: #000;
   padding-bottom: 3rem;
+}
+
+.product-carousel .slick-prev,
+.product-carousel .slick-next {
+  display: none;
+}
+.slick-next:before,
+.slick-prev:before{
+  color: #000;
+}
+.slick-prev, .slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 25%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 @media screen and (max-width: 480px) {
   .product-carousel-container {
@@ -105,5 +116,4 @@
     width: 250px;
 
   }
-  
 }

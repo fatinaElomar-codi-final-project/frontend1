@@ -78,7 +78,7 @@ export default function ProductCarousel() {
     arrows: true,
     infinite: true,
     autoplay: true,
-    speed: 4000,
+    speed: 3000,
     slidesToShow: 5,
     slidesToScroll: 1,
     responsive: [
@@ -116,7 +116,6 @@ export default function ProductCarousel() {
   <p className="review-c" style={{ color: "red", display: "inline-block", marginLeft: "5px" }}>(3k reviews)</p>
 </div>
 
-              <button className="buy-button">Buy Now</button>
 
             </div>
           </div>

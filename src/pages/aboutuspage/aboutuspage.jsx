@@ -51,7 +51,7 @@ export default function Aboutuspage() {
 
       <div class="services" id="services">
         <h1 class="title">Our Best Features</h1>
-        <p>
+        <p className="aboutus-p">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ipsum
           neque, nobis ratione vitae eum quibusdam quidem culpa dolorum autem
           sequi. Rem at beatae debitis.

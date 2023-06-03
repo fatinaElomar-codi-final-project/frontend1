@@ -137,12 +137,30 @@ const OneOrderCard = (props) => {
             </div>
             <div style={{ flex: "60%", marginLeft: "20px" }}>
               <Modal.Body>
-                <p style={{ fontSize: "20px", textAlign: "center" }}>
+                <h2 className="p-d-11">Product description:</h2><hr/>
+                <p className="d-d-2">
                   {props.product.description}
                 </p>
                 {/* Add the rating element here */}
                 <div style={{ textAlign: "center" }}>
-                  <p>Rating: {props.product.rating}</p>
+      
+<div className="sub-description-pro" >
+
+<div className="sub-d1"><h2 className="sub-h">Delivery cost </h2>
+<p className="sub-p-p1">Free</p></div>
+
+<div className="sub-d2"><h2  className="sub-h">Delivery Time</h2>
+<p  className="sub-p-p1">1:30 pm</p></div></div>
+<div className="rating" style={{color:"#f1c40f"}}>
+  <span>&#9733;</span>
+  <span>&#9733;</span>
+  <span>&#9733;</span>
+  <span>&#9733;</span>
+  <span>&#9733;</span>
+
+  <p className="review-c" style={{ color: "red", display: "inline-block", marginLeft: "5px" }}>(4.5 Rating)</p>
+</div> 
+
                 </div>
               </Modal.Body>
             </div>

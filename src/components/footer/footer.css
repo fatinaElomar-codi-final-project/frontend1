@@ -138,5 +138,9 @@ footer{
     display: flex;
     list-style-type: none;
     flex-direction: column;
-  }
+  
+}
+.footer-p {
+  font-size:0.8rem;
+}
 }

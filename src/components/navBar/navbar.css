@@ -104,11 +104,14 @@ nav  {
   transition: all ease-in-out 250ms;
   margin: 0 0 0 10%;
 }
+.icon-large {
+  font-size: 24px; /* Adjust the size as needed */
+}
 
 .buyicon {
   position: relative;
   right: 46px;
-    top: 4px;
+ top: 4px;
   color: #fffbfb;
   border-radius: 7px;
   font-size: 1.4rem;
@@ -168,6 +171,11 @@ nav  {
 }
 .hamburger {
   display: none;
+}
+
+.count-cart{
+  /* position:relative; */
+  font-size:12px;
 }
 
 /*Stying for small screens*/

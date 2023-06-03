@@ -85,23 +85,7 @@ export default function Aboutuspage() {
         </div>
       </div>
 
-      <div class="contactus" id="contactus">
-        <h1 class="title">Contact Us</h1>
-        <div class="form_wrapper">
-          <div class="form_input">
-            <input type="text" placeholder="Email" />
-          </div>
-          <div class="form_input">
-            <input type="text" placeholder="Subject" />
-          </div>
-          <div class="form_input">
-            <textarea placeholder="Message"></textarea>
-          </div>
-          <div class="btn">
-            <a href="#">Submit</a>
-          </div>
-        </div>
-      </div>
+     
       <div class="ourteam" id="ourteam">
         <h1 class="title">our team</h1>
         <div class="ourteam_wrapper">
@@ -132,6 +116,24 @@ export default function Aboutuspage() {
         </div>
       </div>
 
+    
+      <div class="contactus" id="contactus">
+        <h1 class="title">Contact Us</h1>
+        <div class="form_wrapper">
+          <div class="form_input">
+            <input type="text" placeholder="Email" />
+          </div>
+          <div class="form_input">
+            <input type="text" placeholder="Subject" />
+          </div>
+          <div class="form_input">
+            <textarea placeholder="Message"></textarea>
+          </div>
+          <div class="btn">
+            <a href="#">Submit</a>
+          </div>
+        </div>
+      </div>
       <div class="footer">
         <a href="#">@ wizerd_server</a>
       </div>

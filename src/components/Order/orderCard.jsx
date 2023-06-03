@@ -42,7 +42,7 @@ export default function OrderCard() {
   return (
     <div>
       <h5 className="cart-title1">Our Menu</h5>
-      <h1 className="cart-title2">∽∽∽∽Fresh Menu Daily∽∽∽∽</h1>
+      <h1 className="cart-title2">Thousand of meals for all tastes</h1>
       <div className="searchbar">
         <div className="food-c-category">
       <div className="dishesFood">

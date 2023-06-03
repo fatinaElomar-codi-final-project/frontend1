@@ -1,0 +1,109 @@
+/* productcarousel.css */
+
+.product-carousel-container {
+  margin: 0 auto;
+  max-width: 88%;
+  padding: 20px;
+  height: 281px;
+}
+.product-c-slide{
+  background-color: beige;
+  display: flex;
+  width: 284px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.product-carousel .slick-slide {
+  padding: 5px;
+}
+
+.product-carousel img {
+  width: 165px;
+  height: 125px;
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+  border-radius: 4px;
+}
+
+.product-carousel h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-carousel p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #888;
+}
+
+.product-carousel .slick-dots li button::before {
+  font-size: 12px;
+  color: #888;
+}
+
+.product-carousel .slick-dots li.slick-active button::before {
+  color: #000;
+}
+
+.product-carousel .slick-prev,
+.product-carousel .slick-next {
+  font-size: 12px; /* Adjust the font size as per your design */
+  color: rgb(39, 39, 17);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.product-carousel .slick-prev {
+  left: 0;
+}
+
+.product-carousel .slick-next {
+  right: 0;
+}
+
+.product-carousel .slick-prev:before,
+.product-carousel .slick-next:before {
+  font-family: "Font Awesome 5 Free";
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.product-carousel .slick-prev:before {
+  content: "\f104"; /* Font Awesome icon code for left arrow */
+}
+
+.product-carousel .slick-next:before {
+  content: "\f105"; /* Font Awesome icon code for right arrow */
+}
+
+.title-c-product-carousel{
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
+  padding-bottom: 3rem;
+}
+@media screen and (max-width: 480px) {
+  .product-carousel-container {
+    margin: 0 auto;
+    max-width: 300px; /* Adjust the width as per your design */
+  }
+
+  .product-carousel .slick-slide {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .product-c-slide{
+    width: 250px;
+
+  }
+  
+}

@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import "remixicon/fonts/remixicon.css";
 import Logo from "../../images/logo1.png";
-
+import { useCart } from "../useContext/useContexCart";
+import { Badge } from "antd";
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cart, setCart] = useCart()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -71,10 +73,15 @@ function Nav() {
             </section>
           </li>
         </ul>
+       
 
-        <Link className="buyicon" to="/cart">
-          <i class="ri-shopping-basket-fill"></i>
-        </Link>
+        <Link className="buyicon" to="/cartpage">
+  <Badge count={cart?.length} showZero>
+    <i class="ri-shopping-basket-fill icon-large"></i>
+  </Badge>
+</Link>
+
+
       </nav>
     </div>
   );

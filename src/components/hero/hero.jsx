@@ -68,7 +68,7 @@ export default function Hero() {
             Satisfy Your Cravings with Our Delightful Cuisine
           </p>
           <div className="hero-buttons">
-            <a children="1" className="hero-btn">Order now</a>
+            <a href="/cart" children="1" className="hero-btn">Order now</a>
             <a children="1" className="hero-btn">Join Us</a>
 
           </div>

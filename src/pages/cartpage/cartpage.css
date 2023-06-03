@@ -1,0 +1,25 @@
+.item-c-row{
+display:flex;
+justify-content: space-around;
+}
+
+.cartt-detail{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+
+}
+.remove-icon {
+    font-size: 22px;
+  }
+  
+  .remove-icon:hover {
+    cursor: pointer;
+    color: brown;
+  }
+  .cart-t-title{
+    padding-top: 4rem;
+    text-align: center;
+    font-size: 5rem;  }

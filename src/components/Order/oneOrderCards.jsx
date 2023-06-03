@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import "./order.css";
 import { useCart } from "../../components/useContext/useContexCart";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Modal } from "react-bootstrap";
-import { Toast } from "reactstrap";
+import { toast } from "react-toastify";
 const OneOrderCard = (props) => {
   const [quantity, setquantity] = useState(1);
-  const [cart, setCart] = useCart()
+  const [cart, setCart] = useCart();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleChangeCategory = (e) => {
     console.log(e.target.value);
+  };
+
+  const handleAddToCart = () => {
+    setCart(...cart, props.product);
   };
 
   return (
@@ -32,8 +37,7 @@ const OneOrderCard = (props) => {
         </div>
         <div className="flex-container">
           <div className="ww_100">
-            <p>Categories:</p>
-            <h2>{props.product.category_id?.name || "uncategorized"}</h2>
+            <h2 style={{fontSize:"18px"}}>Categories:  <span style={{color:"red"}}>{props.product.category_id?.name || "uncategorized"}</span></h2>
           </div>
           <div className="quantity">
             quantity:
@@ -50,9 +54,20 @@ const OneOrderCard = (props) => {
           </div>
         </div>
         <div className="cart-btn">
-          <p>Prices: {props.product.price}</p>
-          <a className="add-cart" href="#" onClick={() =>{setCart([...cart,props]);
-              Toast.success('Item Added to cart');}}>
+        <p>Prices: {props.product.price}</p>
+
+          <a
+            className="add-cart"
+            href="#"
+            onClick={() => {
+              setCart([...cart, props.product]);
+              localStorage.setItem(
+                "cart",
+                JSON.stringify([...cart, props.product])
+              );
+              toast.success("Item Added to cart");
+            }}
+          >
             <i class="ri-shopping-cart-fill"></i>
           </a>
         </div>
@@ -85,11 +100,10 @@ const OneOrderCard = (props) => {
             overflowY: "auto", // Enable vertical scrolling for modal content
           }}
         >
-          <div 
+          <div
             style={{
               display: "flex",
               justifyContent: "space-between",
-             
             }}
           >
             <Modal.Header closeButton>
@@ -112,14 +126,13 @@ const OneOrderCard = (props) => {
                 className="img-fluid"
                 src={`https://restaurant-backend-1.onrender.com${props.product.dishImage}`}
                 alt="food"
-              //   style={{
-              //     maxWidth: "100%",
-              //     height:"240px",
-              //     borderRadius: "10px",
-              //   }
-              
-              // }
+                //   style={{
+                //     maxWidth: "100%",
+                //     height:"240px",
+                //     borderRadius: "10px",
+                //   }
 
+                // }
               />
             </div>
             <div style={{ flex: "60%", marginLeft: "20px" }}>

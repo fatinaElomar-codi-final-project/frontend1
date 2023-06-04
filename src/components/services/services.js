@@ -20,12 +20,10 @@ export default function Services() {
           Circle Crispy Chicken is a mouthwatering dish made with tender
             chicken pieces coated in a crispy and seasoned batter. It is known
             for its golden brown color and irresistible crunch. The chicken is
-            marinated in a special blend of spices, giving it a flavorful kick.
-            Whether enjoyed on its own or as part of a meal, Circle Crispy
+            marinated in a special blend of spices, Circle Crispy
             Chicken is sure to satisfy your cravings for a delightful and
             satisfying meal.
           </p>
-          <span className="newplate">New flavors</span>
         </div>
         <div className="content-plate">
           <img

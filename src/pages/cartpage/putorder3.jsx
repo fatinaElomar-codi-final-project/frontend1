@@ -1,4 +1,4 @@
-import { Modal, Form, Input } from "antd";
+import { Modal, Form, Input, message } from "antd";
 import axios from "axios";
 import React from "react";
 
@@ -16,8 +16,17 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
       const newOrder = response.data;
       console.log("New order:", newOrder);
       // Handle the new order data
+
+      // Show success message
+      message.success({
+        content: "Order confirmed successfully!",
+        style: { fontSize: "18px" }, // Increase font size
+        onClose: () => onCancel(), // Close form after confirming order
+      });
     } catch (error) {
       console.error("Error creating order:", error);
+      // Show error message
+      message.error("Failed to confirm order. Please try again.");
     }
   };
 
@@ -36,7 +45,23 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
       createOrder(order);
     });
   };
+  
+  const getCurrentDate = () => {
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, "0");
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const year = currentDate.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+  const validateName = (_, value) => {
+    const nameRegex = /^[a-zA-Z\s]+$/; // Regular expression to match only letters and spaces
 
+    if (!nameRegex.test(value)) {
+      return Promise.reject("Please enter a valid name");
+    }
+
+    return Promise.resolve();
+  };
   return (
     <Modal
       title="Order Details"
@@ -45,10 +70,13 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
       footer={null}
     >
       <Form form={form} onFinish={handleFormSubmit}>
-        <Form.Item
+      <Form.Item
           name="name"
           label="Name"
-          rules={[{ required: true, message: "Please enter your name" }]}
+          rules={[
+            { required: true, message: "Please enter your name" },
+            { validator: validateName },
+          ]}
         >
           <Input />
         </Form.Item>
@@ -72,18 +100,8 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
         >
           <Input placeholder="Enter the phone number (00/000000)" />
         </Form.Item>
-        <Form.Item
-          name="date"
-          label="Date"
-          rules={[
-            {
-              required: true,
-              pattern: /^\d{2}\/\d{2}\/\d{4}$/,
-              message: "Please enter a valid date (dd/mm/yyyy)",
-            },
-          ]}
-        >
-          <Input placeholder="Enter the date (dd/mm/yyyy)" />
+        <Form.Item label="Date" name="date" initialValue={getCurrentDate()}>
+          <p>{getCurrentDate()}</p>
         </Form.Item>
         <Form.Item>
           <h3>Order Summary:</h3>
@@ -91,7 +109,7 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
           <p>Total Amount: {totalPrice}$</p>
         </Form.Item>
         <Form.Item>
-          <button type="submit" className="order-btn" onClick={handleCreateOrder}>
+          <button type="submit" className="order-btn check-order-btn" onClick={handleCreateOrder}>
             Confirm Order
           </button>
         </Form.Item>

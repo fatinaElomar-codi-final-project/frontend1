@@ -11,6 +11,7 @@ export default function Cartpage() {
   const [cart, setCart] = useCart();
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible3, setModalVisible3] = useState(false);
 
   const RemoveCartItem = (index) => {
     try {
@@ -45,6 +46,9 @@ export default function Cartpage() {
     setModalVisible1(true);
   };
 
+  const handleConfirmOrder3 = () => {
+    setModalVisible3(true);
+  };
   const handleFormSubmit = (values) => {
     // Save form values to local storage or send a message to the order page
     console.log("Form values:", values);
@@ -56,11 +60,24 @@ export default function Cartpage() {
   return (
     <>
       <div className="cartcontainerpage">
+      <div className="row">
+              <div className="col-md-12 text-center  row-c-btn">
+                <a href="/cart" className="back-to-menu-btn">
+                  <i className="ri-book-open-line"></i>
+                  Back to Menu
+                </a>
+                <h2 className="cart-t-title">Delicious Wizard Cart</h2>
+
+                <a href="/" className="back-to-home-btn">
+                  <i className="ri-home-heart-line"></i>
+                  Home
+                </a>
+              </div>
+            </div>
         <Layout>
           <div className="cart-container-box">
             <div className="row-cart">
-              <h2 className="cart-t-title">Delicious Wizard Cart</h2>
-              <div className="text-center">
+              <div className="text-t">
                 {cart?.length > 0 ? (
                   `You have ${cart.length} item${
                     cart.length > 1 ? "s" : ""
@@ -112,37 +129,33 @@ export default function Cartpage() {
                 <div className="col-md-3 text content">
                   <h2>Cart summary</h2>
                   <p>Total | Checkout | Payment</p>
-
                   <hr />
                   <h4>Total: {totalPrice()}$</h4>
+                  <hr />
+                  Order Type:
+                  <div className="order-type-buttons">
                   <button
                     onClick={handleConfirmOrder}
                     className="check-order-btn"
                   >
-                    Check Order
+                    Delivery
                   </button>
                   <button
                     onClick={handleConfirmOrder1}
                     className="check-order-btn"
                   >
-                    Check Order 2
+                    TakeAway{" "}
                   </button>
-                  
+                  <button
+                    onClick={handleConfirmOrder3}
+                    className="check-order-btn"
+                  >
+                    At restaurant{" "}
+                  </button></div>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <a href="/cart" className="back-to-menu-btn">
-                  <i className="ri-book-open-line"></i>
-                  Back to Menu
-                </a>
-                <a href="/" className="back-to-home-btn">
-                  <i className="ri-home-heart-line"></i>
-                  Home
-                </a>
-              </div>
-            </div>
+           
           </div>
         </Layout>
       </div>
@@ -161,9 +174,9 @@ export default function Cartpage() {
         totalPrice={totalPrice()}
         cart={cart}
       />
-        <OrderModal3
-        visible={modalVisible1}
-        onCancel={() => setModalVisible1(false)}
+      <OrderModal3
+        visible={modalVisible3}
+        onCancel={() => setModalVisible3(false)}
         onFinish={handleFormSubmit}
         totalPrice={totalPrice()}
         cart={cart}

@@ -25,7 +25,7 @@ const OneOrderCard = (props) => {
         <div className="show-card" onClick={handleShow}>
           <h1 className="name-product">{props.product.name}</h1>
           <img
-            className="img-fluid"
+            className="img-fluid1"
             src={`https://restaurant-backend-1.onrender.com${props.product.dishImage}`}
             alt="food"
             style={{
@@ -123,7 +123,7 @@ const OneOrderCard = (props) => {
           <div className="modelLeft" style={{ display: "flex" }}>
             <div style={{ flex: "40%" }}>
               <img
-                className="img-fluid"
+                className="img-fluid1"
                 src={`https://restaurant-backend-1.onrender.com${props.product.dishImage}`}
                 alt="food"
                 //   style={{

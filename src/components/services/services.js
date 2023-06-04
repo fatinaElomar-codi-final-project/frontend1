@@ -14,38 +14,40 @@ export default function Services() {
     <div className="servicesbody">
       <section className="main-plate1">
         <div className="content-plate">
-          <p className="plate-title">Italian Pasta</p>
+          <p className="plate-title">Circle Crispy Chicken</p>
           <p className="plate-sub-description">Discover the flavors of Italy</p>
           <p className="plate-description">
-            Italian pasta is a staple in Italian cuisine, known for its diverse
-            shapes, flavors, and textures. It has been a fundamental part of
-            Italian culinary tradition for centuries. Pasta dishes can vary
-            greatly depending on the region and local preferences. From
-            spaghetti and penne to lasagna and ravioli, there is a pasta shape
-            to suit every taste.
-          </p>
-          <span className="newplate">New flavors</span>
-        </div>
-        <div className="content-plate">
-          <img
-            className="plate-img1"
-            src={Plate1}
-            alt="new plate"
-          />
-        </div>
-        <div className="content-plate">
-          <p className="plate-title">Circle Crispy Chicken</p>
-          <p className="plate-sub-description">
-            Deliciously crispy and flavorful
-          </p>
-          <p className="plate-description">
-            Circle Crispy Chicken is a mouthwatering dish made with tender
+          Circle Crispy Chicken is a mouthwatering dish made with tender
             chicken pieces coated in a crispy and seasoned batter. It is known
             for its golden brown color and irresistible crunch. The chicken is
             marinated in a special blend of spices, giving it a flavorful kick.
             Whether enjoyed on its own or as part of a meal, Circle Crispy
             Chicken is sure to satisfy your cravings for a delightful and
             satisfying meal.
+          </p>
+          <span className="newplate">New flavors</span>
+        </div>
+        <div className="content-plate">
+          <img
+            className="plate-img1"
+            src={Plate2}
+            alt="new plate"
+          />
+        </div>
+        <div className="content-plate">
+          <p className="plate-title">Italian Pasta</p>
+          <p className="plate-sub-description">
+            Deliciously crispy and flavorful
+          </p>
+          <p className="plate-description">
+          Italian pasta is a staple in Italian cuisine, known for its diverse
+            shapes, flavors, and textures. It has been a fundamental part of
+            Italian culinary tradition for centuries. Pasta dishes can vary
+            greatly depending on the region and local preferences. From
+            spaghetti and penne to lasagna and ravioli, there is a pasta shape
+            to suit every taste.
+
+          
           </p>
           <span className="newplate">New flavors</span>
 
@@ -78,7 +80,7 @@ export default function Services() {
         <div className="content-plate">
           <img
             className="plate-img1"
-            src={Plate2}
+            src={Plate1}
             alt="new plate"
           />
         </div>

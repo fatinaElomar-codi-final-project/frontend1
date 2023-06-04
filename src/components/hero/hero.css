@@ -80,6 +80,7 @@
 
 .hero-btn {
   flex: 1;
+  text-decoration: none;
   background-color: #c8a15e;
   color: #fff;
   border-radius: 6px;

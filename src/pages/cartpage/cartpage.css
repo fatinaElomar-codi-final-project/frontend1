@@ -155,3 +155,9 @@ html, body {
   background-color: #ca6d01;
   color: #fff;
 }
+@media(max-width:767px) {
+  .row-item-cart {
+   
+    flex-direction: column;
+}
+ }

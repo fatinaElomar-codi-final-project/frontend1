@@ -63,7 +63,7 @@ function Tables() {
         // Handle success response
         console.log(response);
         if (response.status === 200) {
-          alert("user's info has been edited successfully");
+          alert("product's info has been edited successfully");
         }
       })
       .catch((error) => {

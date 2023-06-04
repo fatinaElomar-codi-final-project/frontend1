@@ -57,11 +57,7 @@ function Sidebar({ isMenuOpen, handleDrawerToggle, admin }) {
       icon: <FoodIcon />,
       path: "/",
     },
-    {
-      text: "Orders",
-      icon: <OrderIcon />,
-      path: "/",
-    },
+  
     {
       text: "Reservations",
       icon: <ReservationIcon />,
@@ -79,7 +75,7 @@ function Sidebar({ isMenuOpen, handleDrawerToggle, admin }) {
     {
       text: "Dishes",
       icon: <RestaurantIcon />,
-      path: "/dishtable",
+      path: "/admin/dishtable",
     },
     {
       text: "Categories",
@@ -89,7 +85,7 @@ function Sidebar({ isMenuOpen, handleDrawerToggle, admin }) {
     {
       text: "Orders",
       icon: <OrderIcon />,
-      path: "/",
+      path: "/admin/listorder/",
     },
     {
       text: "Reservations",

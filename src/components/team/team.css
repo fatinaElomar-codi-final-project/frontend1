@@ -621,7 +621,7 @@ body {
 	-webkit-transform: translate3d(-10px, 0, 0);
 	-webkit-transition: all .55s 0s;
 	font-family: Oswald;
-	z-index: 2;
+	z-index: 0;
 	position: relative;
 	padding-top: 10%
 }

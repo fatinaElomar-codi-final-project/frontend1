@@ -17,17 +17,21 @@ import Aboutuspage from "./pages/aboutuspage/aboutuspage";
 import OrderCard from "./components/Order/orderCard";
 import Cartpage from "./pages/cartpage/cartpage";
 import ProductCarouselComponent from "./components/product-carousal/products_carousel";
+import OrdersList from "./pages/home /showorder/showorder";
 function App() {
   return (
     <Routes>
       <Route path="/Newdishs" component={<Newdishs />} />
       <Route path="/cartpage" element={<Cartpage />} />
       <Route path="/productcarousel" element={<ProductCarouselComponent />} />
+      <Route path="/listorder" element={<OrdersList/>} />
 
       
       <Route path="/admin" element={<Admin />}>
         <Route path="/admin/dishtable" element={<TableDishs />} />
         <Route path="/admin/dashboard" element={<DashboardLayout />} />
+        <Route path="/admin/listorder" element={<OrdersList/>} />
+
       </Route>
 
       <Route path="/" element={<Visitor />}>

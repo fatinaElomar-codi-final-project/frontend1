@@ -1063,8 +1063,8 @@
 
   .about-principal {
     flex-direction: column;
-    height: 368px;
-    overflow: hidden;
+    height: 468px;
+   overflow: hidden;
   }
   .container-aboutus {
     position: relative;
@@ -1074,4 +1074,9 @@
   .aboutus-description {
     font-size: 15px;
   }
+  .title-aboutus {
+  
+    top: 56px;
+ 
+}
 }

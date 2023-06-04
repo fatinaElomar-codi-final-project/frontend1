@@ -1,15 +1,16 @@
-import { Layout, Modal, Form, Input, Select } from "antd";
+import { Layout } from "antd";
 import React, { useState } from "react";
 import "./cartpage.css";
 import { useCart } from "../../components/useContext/useContexCart";
 import Empty from "../../images/empty.png";
-
-const { Option } = Select;
+import OrderModal from "./putorder";
+import OrderModal1 from "./putorder2";
+import OrderModal3 from "./putorder3";
 
 export default function Cartpage() {
   const [cart, setCart] = useCart();
   const [modalVisible, setModalVisible] = useState(false);
-  const [form] = Form.useForm();
+  const [modalVisible1, setModalVisible1] = useState(false);
 
   const RemoveCartItem = (index) => {
     try {
@@ -40,13 +41,17 @@ export default function Cartpage() {
     setModalVisible(true);
   };
 
+  const handleConfirmOrder1 = () => {
+    setModalVisible1(true);
+  };
+
   const handleFormSubmit = (values) => {
     // Save form values to local storage or send a message to the order page
     console.log("Form values:", values);
     // You can save the form values to local storage here
     setModalVisible(false);
+    setModalVisible1(false);
   };
-
 
   return (
     <>
@@ -57,7 +62,9 @@ export default function Cartpage() {
               <h2 className="cart-t-title">Delicious Wizard Cart</h2>
               <div className="text-center">
                 {cart?.length > 0 ? (
-                  `You have ${cart.length} item${cart.length > 1 ? "s" : ""} in your cart`
+                  `You have ${cart.length} item${
+                    cart.length > 1 ? "s" : ""
+                  } in your cart`
                 ) : (
                   <div>
                     <p>Your cart is empty</p>
@@ -102,85 +109,65 @@ export default function Cartpage() {
                     ))}
                   </div>
                 </div>
-
                 <div className="col-md-3 text content">
                   <h2>Cart summary</h2>
                   <p>Total | Checkout | Payment</p>
 
-<p>Total | Checkout | Payment</p>
                   <hr />
                   <h4>Total: {totalPrice()}$</h4>
-                  <button onClick={handleConfirmOrder} className="check-order-btn">
+                  <button
+                    onClick={handleConfirmOrder}
+                    className="check-order-btn"
+                  >
                     Check Order
                   </button>
+                  <button
+                    onClick={handleConfirmOrder1}
+                    className="check-order-btn"
+                  >
+                    Check Order 2
+                  </button>
+                  
                 </div>
               </div>
             </div>
             <div className="row">
-            <div className="col-md-12 text-center">
-              <a href="/cart" className="back-to-menu-btn"><i class="ri-book-open-line"></i>
-                Back to Menu
-              </a>
-              <a href="/" className="back-to-home-btn">
-              <i class="ri-home-heart-line"></i>
-                Home
-              </a>
+              <div className="col-md-12 text-center">
+                <a href="/cart" className="back-to-menu-btn">
+                  <i className="ri-book-open-line"></i>
+                  Back to Menu
+                </a>
+                <a href="/" className="back-to-home-btn">
+                  <i className="ri-home-heart-line"></i>
+                  Home
+                </a>
+              </div>
             </div>
           </div>
-          </div>
         </Layout>
-    <Modal
-      title="Order Details"
-      visible={modalVisible}
-      onCancel={() => setModalVisible(false)}
-      footer={null}
-    >
-      <Form form={form} onFinish={handleFormSubmit}>
-        <Form.Item
-          name="name"
-          label="Name"
-          rules={[{ required: true, message: "Please enter your name" }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="address"
-          label="Address"
-          rules={[{ required: true, message: "Please enter your address" }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item
-          name="orderType"
-          label="Order Type"
-          rules={[{ required: true, message: "Please select order type" }]}
-        >
-          <Select>
-            <Option value="delivery">Delivery</Option>
-            <Option value="takeaway">Takeaway</Option>
-            <Option value="restaurant">Inside Restaurant</Option>
-          </Select>
-        </Form.Item>
-        {form.getFieldValue('orderType') === 'restaurant' && (
-       <Form.Item
-       name="tableNumber"
-       label="Table Number"
-       rules={[
-         {
-           required: modalVisible && form.getFieldValue('orderType') === "restaurant",
-           message: "Please enter the table number",
-         },
-       ]}
-     >
-       <Input placeholder="Enter the table number" />
-     </Form.Item>
-        )}
-        <div className="modal-footer">
-          <button type="submit" className="btn-primary">Submit</button>
-        </div>
-      </Form>
-    </Modal>
-  </div>
-</>
-);
+      </div>
+
+      <OrderModal
+        visible={modalVisible}
+        onCancel={() => setModalVisible(false)}
+        onFinish={handleFormSubmit}
+        totalPrice={totalPrice()}
+        cart={cart}
+      />
+      <OrderModal1
+        visible={modalVisible1}
+        onCancel={() => setModalVisible1(false)}
+        onFinish={handleFormSubmit}
+        totalPrice={totalPrice()}
+        cart={cart}
+      />
+        <OrderModal3
+        visible={modalVisible1}
+        onCancel={() => setModalVisible1(false)}
+        onFinish={handleFormSubmit}
+        totalPrice={totalPrice()}
+        cart={cart}
+      />
+    </>
+  );
 }

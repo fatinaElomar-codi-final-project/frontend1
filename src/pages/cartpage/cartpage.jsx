@@ -24,13 +24,20 @@ export default function Cartpage() {
     }
   };
 
+  const handleQuantityChange = (index, quantity) => {
+    const updatedCart = [...cart];
+    updatedCart[index].quantity = quantity;
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   const totalPrice = () => {
     try {
       let total = 0.0;
-      cart?.map((item) => {
+      cart?.forEach((item) => {
         let parsedPrice = item.price.slice(0, item.price.length - 1);
         parsedPrice = parseFloat(parsedPrice);
-        total = total + parsedPrice;
+        total += parsedPrice * item.quantity;
       });
       return total.toLocaleString("en-us");
     } catch (error) {
@@ -49,6 +56,7 @@ export default function Cartpage() {
   const handleConfirmOrder3 = () => {
     setModalVisible3(true);
   };
+
   const handleFormSubmit = (values) => {
     // Save form values to local storage or send a message to the order page
     console.log("Form values:", values);
@@ -60,20 +68,20 @@ export default function Cartpage() {
   return (
     <>
       <div className="cartcontainerpage">
-      <div className="row">
-              <div className="col-md-12 text-center  row-c-btn">
-                <a href="/cart" className="back-to-menu-btn">
-                  <i className="ri-book-open-line"></i>
-                  Back to Menu
-                </a>
-                <h2 className="cart-t-title">Delicious Wizard Cart</h2>
+        <div className="row">
+          <div className="col-md-12 text-center  row-c-btn">
+            <a href="/cart" className="back-to-menu-btn">
+              <i className="ri-book-open-line"></i>
+              Back to Menu
+            </a>
+            <h2 className="cart-t-title">Delicious Wizard Cart</h2>
 
-                <a href="/" className="back-to-home-btn">
-                  <i className="ri-home-heart-line"></i>
-                  Home
-                </a>
-              </div>
-            </div>
+            <a href="/" className="back-to-home-btn">
+              <i className="ri-home-heart-line"></i>
+              Home
+            </a>
+          </div>
+        </div>
         <Layout>
           <div className="cart-container-box">
             <div className="row-cart">
@@ -94,38 +102,58 @@ export default function Cartpage() {
                 <div className="col-md-9">
                   <h3>Cart Item</h3>
                   <div className="row-item-cart">
-                    {cart?.map((product, index) => (
-                      <div className="row-item-cart" key={index}>
-                        <div className="col-md-8"></div>
-                        <div className="col-md-4 cartt-detail">
-                          <div>
-                            <img
-                              className="img-fluid"
-                              src={`https://restaurant-backend-1.onrender.com${product.dishImage}`}
-                              alt="food"
-                              style={{
-                                height: "99px",
-                                width: "126px",
-                                borderRadius: "20px",
-                              }}
-                            />
-                          </div>
-                          <div>
-                            <h2>{product.name}</h2>
-                            <p>{product.description.substring(0, 20)}</p>
-                            <p>{product.price}</p>
-                          </div>
-                          <div>
-                            <i
-                              className="ri-delete-bin-5-fill remove-icon"
-                              onClick={() => RemoveCartItem(index)}
-                            ></i>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+{cart?.map((product, index) => (
+  <div className="row-item-cart" key={index}>
+    <div className="col-md-8"></div>
+    <div className="col-md-4 cartt-detail">
+      <div>
+        <img
+          className="img-fluid"
+          src={`https://restaurant-backend-1.onrender.com${product.dishImage}`}
+          alt="food"
+          style={{
+            height: "99px",
+            width: "126px",
+            borderRadius: "20px",
+          }}
+        />
+      </div>
+      <div>
+        <h2>{product.name}</h2>
+        <p>{product.description.substring(0, 20)}</p>
+        <p>{product.price}</p>
+      </div>
+      <div>
+        <select
+          className="quantity-p"
+          value={product.quantity}
+          onChange={(e) =>
+            handleQuantityChange(index, parseInt(e.target.value))
+          }
+          style={{
+            width: "100px",
+            border: "none",
+            margin: "10px"
+          }}
+        >
+          {[...Array(10)].map((_, i) => (
+            <option key={i + 1} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <p>Total Price: {parseFloat(product.price.slice(0, -1)) * product.quantity}$</p>
+        <i
+          className="ri-delete-bin-5-fill remove-icon"
+          onClick={() => RemoveCartItem(index)}
+        ></i>
+      </div>
+    </div>
+  </div>
+))}
+</div>                </div>
                 <div className="col-md-3 text content">
                   <h2>Cart summary</h2>
                   <p>Total | Checkout | Payment</p>
@@ -134,32 +162,31 @@ export default function Cartpage() {
                   <hr />
                   Order Type:
                   <div className="order-type-buttons">
-                  <button
-                    onClick={handleConfirmOrder}
-                    className="check-order-btn"
-                  >
-                    Delivery
-                  </button>
-                  <button
-                    onClick={handleConfirmOrder1}
-                    className="check-order-btn"
-                  >
-                    TakeAway{" "}
-                  </button>
-                  <button
-                    onClick={handleConfirmOrder3}
-                    className="check-order-btn"
-                  >
-                    At restaurant{" "}
-                  </button></div>
+                    <button
+                      onClick={handleConfirmOrder}
+                      className="check-order-btn"
+                    >
+                      Delivery
+                    </button>
+                    <button
+                      onClick={handleConfirmOrder1}
+                      className="check-order-btn"
+                    >
+                      TakeAway{" "}
+                    </button>
+                    <button
+                      onClick={handleConfirmOrder3}
+                      className="check-order-btn"
+                    >
+                      At restaurant{" "}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-           
           </div>
         </Layout>
       </div>
-
       <OrderModal
         visible={modalVisible}
         onCancel={() => setModalVisible(false)}

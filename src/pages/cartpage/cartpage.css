@@ -6,7 +6,9 @@ html, body {
   justify-content: space-between;
   align-items: center;
 }
-
+.quantity-p{
+  width:22px;
+}
 .cart-container-box {
   height: 100%;
   padding: 20px;

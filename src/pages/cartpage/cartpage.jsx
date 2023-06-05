@@ -102,6 +102,7 @@ export default function Cartpage() {
                 <div className="col-md-9">
                   <h3>Cart Item</h3>
                   <div className="row-item-cart">
+                  ...
 {cart?.map((product, index) => (
   <div className="row-item-cart" key={index}>
     <div className="col-md-8"></div>
@@ -124,24 +125,25 @@ export default function Cartpage() {
         <p>{product.price}</p>
       </div>
       <div>
-        <select
-          className="quantity-p"
-          value={product.quantity}
-          onChange={(e) =>
-            handleQuantityChange(index, parseInt(e.target.value))
-          }
-          style={{
-            width: "100px",
-            border: "none",
-            margin: "10px"
-          }}
-        >
-          {[...Array(10)].map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
+      <select
+  className="quantity-p"
+  value={product.quantity}
+  onChange={(e) =>
+    handleQuantityChange(index, parseInt(e.target.value))
+  }
+  style={{
+    width: "100px",
+    border: "none",
+    margin: "10px"
+  }}
+>
+  {[...Array(11)].map((_, i) => (
+    <option key={i} value={i}>
+      {i}
+    </option>
+  ))}
+</select>
+
       </div>
       <div>
         <p>Total Price: {parseFloat(product.price.slice(0, -1)) * product.quantity}$</p>

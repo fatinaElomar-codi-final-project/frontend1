@@ -1,6 +1,7 @@
 import { Modal, Form, Input, message } from "antd";
 import axios from "axios";
 import React from "react";
+import {  TimePicker } from 'antd';
 
 const OrderModal1 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
   const [form] = Form.useForm();
@@ -85,13 +86,17 @@ const OrderModal1 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
   rules={[
     {
       required: true,
-      pattern: /^(0[89]|1[0-9]|2[0123]):[0-5][0-9]\s(am|pm)$/,
       message: "Please enter a valid time (between 8:00 am and 10:00 pm)",
     },
   ]}
 >
-  <Input placeholder="Enter the time (e.g., 08:00 am)" />
+  <TimePicker
+    format="h:mm a"
+    placeholder="Select the time"
+    disabledHours={() => Array.from({ length: 8 }, (_, i) => i).concat(Array.from({ length: 24 }, (_, i) => i + 22))}
+  />
 </Form.Item>
+
 
 <Form.Item label="Date" name="date" initialValue={getCurrentDate()}>
           <p>{getCurrentDate()}</p>

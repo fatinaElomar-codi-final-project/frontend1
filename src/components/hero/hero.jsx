@@ -8,6 +8,7 @@ import Heroimg from "../../images/hero.jpg";
 import Hero1img from "../../images/hero1.jpg";
 import Hero3img from "../../images/hero3.jpeg";
 import Hero2img from "../../images/hero2.webp";
+import RegisterForm from "../../pages/login/register";
 
 export default function Hero() {
   useEffect(() => {
@@ -73,6 +74,7 @@ export default function Hero() {
 
           </div>
         </div>
+        <RegisterForm/>
       </section>
     </div>
   );

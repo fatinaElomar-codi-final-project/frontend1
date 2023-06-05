@@ -62,7 +62,11 @@ const OrdersList = () => {
     <p><span className="brown">Address:</span> {order.address}</p>
     <p><span className="brown">Table Number:</span> {order.tablenumber}</p>
 
-    <p><span className="brown">Time of Arrival:</span> {order.timearrive}</p>
+    <p>
+  <span className="brown">Time of Arrival:</span>{' '}
+  {order.timearrive && new Date(order.timearrive).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
+</p>
+
     <p><span className="brown">Phone Number:</span> {order.phonenumber}</p>
     <p><span className="brown">Date:</span> {order.date}</p>
     <p>

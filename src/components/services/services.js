@@ -1,6 +1,4 @@
-import { FaShoppingCart, FaCalendarAlt, FaUsers } from "react-icons/fa";
 import "./services.css";
-import Order from "../../images/order.svg";
 import Plate2 from "../../images/plate2.png";
 import Plate1 from "../../images/plate1.png";
 import Plate from "../../images/plate.png";

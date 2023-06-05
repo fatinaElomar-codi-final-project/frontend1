@@ -21,6 +21,8 @@ import OrdersList from "./pages/home /showorder/showorder";
 function App() {
   return (
     <Routes>
+              <Route path="/login" element={<Login />} />
+
       <Route path="/Newdishs" component={<Newdishs />} />
       <Route path="/cartpage" element={<Cartpage />} />
       <Route path="/productcarousel" element={<ProductCarouselComponent />} />
@@ -41,7 +43,6 @@ function App() {
         <Route path="/Drinks" element={<OrderCard category="Drinks" />} />
         <Route path="/" element={<Home />} />
         <Route path="/tab" element={<Menupage />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/dish" element={<DishCard />} />
         <Route path="/scroll" element={<ArrivalhomePage />} />
       </Route>

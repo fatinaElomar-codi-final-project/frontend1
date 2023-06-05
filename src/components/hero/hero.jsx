@@ -70,7 +70,7 @@ export default function Hero() {
           </p>
           <div className="hero-buttons">
             <a href="/cart" children="1" className="hero-btn">Order now</a>
-            <a href="/" children="1" className="hero-btn">Join Us</a>
+            <a href="/" children="1" className="hero-btn">Rate Us</a>
 
           </div>
         </div>

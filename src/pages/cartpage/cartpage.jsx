@@ -102,7 +102,7 @@ export default function Cartpage() {
                 <div className="col-md-9">
                   <h3>Cart Item</h3>
                   <div className="row-item-cart">
-                  ...
+                  
 {cart?.map((product, index) => (
   <div className="row-item-cart" key={index}>
     <div className="col-md-8"></div>

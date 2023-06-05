@@ -218,6 +218,12 @@ h1.name-product {
     width: 100%;
     height: 65px;
     font-size: 26px;
+    
+  }
+  .food-c-category{
+    z-index: 99;
+    position: sticky;
+    top: 96px;
   }
 }
 

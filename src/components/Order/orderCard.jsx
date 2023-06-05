@@ -85,7 +85,7 @@ export default function OrderCard() {
         <div className="food-c-category">
           <div className="dishesFood">
             {isMobile ? (
-              <select
+              <select styke
                 className="category-select"
                 value={selectedCategory}
                 onChange={handleSelectChange}

@@ -98,6 +98,7 @@ const OrderModal1 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
 </Form.Item>
 
 
+
 <Form.Item label="Date" name="date" initialValue={getCurrentDate()}>
           <p>{getCurrentDate()}</p>
         </Form.Item>

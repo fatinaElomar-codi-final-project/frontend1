@@ -12,7 +12,7 @@ export default function Home() {
     <>
    
       <Hero />
-      <div className="space"></div> {/* Add space */}
+      {/* <div className="space"></div> Add space */}
 
       <Stack
         direction="column"

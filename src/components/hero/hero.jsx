@@ -74,7 +74,7 @@ export default function Hero() {
 
           </div>
         </div>
-        <RegisterForm/>
+        {/* <RegisterForm/> */}
       </section>
     </div>
   );

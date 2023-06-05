@@ -103,12 +103,15 @@ footer{
     align-items: center;
     justify-content: space-around;
     width: auto;
-    height: 317px;
-           border-top: 1px solid #4c4c4c;
+    height: 323px;     
+    border-top: 1px solid #4c4c4c;
   }
+  .footer-social-icons a {
+    font-size: 44px;
+}
 
   .footer-logo {
-    height: 5.2rem;
+    height: 6.2rem;
     width: 8rem;
     padding: 0 0 10px 0;
   }
@@ -128,8 +131,8 @@ footer{
   .footer-center {
     background-color: black;
     display: flex;
-    flex-direction: row;
-    /* padding: 20px; */
+    flex-direction: column;
+        /* padding: 20px; */
     justify-content: space-around;
     align-items: center;
   }
@@ -142,5 +145,8 @@ footer{
 }
 .footer-p {
   font-size:0.8rem;
+}
+.footer-f{
+  display: none;
 }
 }

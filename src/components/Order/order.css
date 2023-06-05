@@ -127,16 +127,34 @@ display: flex;
     align-items: center;
     flex-direction: row;
   }
-  .dishesFood {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    font-size: 30px;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
+/* yourStyles.css */
+
+.dishesFood {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 30px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Navlink-cart {
+  text-decoration: none;
+  padding: 10px;
+  color: black;
+  border: 1px solid #c8a15e;
+  margin: 10px;
+  width: 268px;
+  border-radius: 9px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.Navlink-cart.active {
+  background-color: gray;
+  color: white;
+}
+
   .Navlink-cart {
     text-decoration: none;
     padding: 10px;
@@ -159,6 +177,7 @@ display: flex;
   .Navlink-cart:hover {
     transform: scale(1.1);
     background-color: black;
+    color:beige;
   }
   .cart-title2{
     color: #ca6d01;
@@ -178,9 +197,31 @@ padding-top: 13px;
 .sub-h{
   color: #696161;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+/* yourStyles.css */
+
+.category-select {
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+}
+
+/* Additional styles for mobile view */
+@media (max-width: 768px) {
+  .category-select {
+    width: 100%;
+    height: 65px;
+    font-size: 26px;
+  }
+}
+
 @media(max-width:750px){
  
-    .dishesFood {
+    /* .dishesFood {
       display: flex;
       width: 100%;
       justify-content: center;
@@ -188,7 +229,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
       flex-wrap: wrap;
       align-items: flex-start;
       flex-direction: row;
-  }
+  } */
 
 .searchbar {
   display: flex;
@@ -197,12 +238,12 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
   padding: 20px;
   align-items: center;
 }
-.Navlink-cart.active {
+/* .Navlink-cart.active {
   color: #c8a15e;
   width: auto;
   border: 2px solid #877d7d;
   margin: 8px;
-}
+} */
 .cart-title2 {
   width: auto;
   font-size: 16px;

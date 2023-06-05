@@ -7,7 +7,8 @@ import OneOrderCard from "./oneOrderCards";
 export default function OrderCard() {
   const [data1, setData1] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     axios
       .get("https://restaurant-backend-1.onrender.com/dish/", {
@@ -38,106 +39,74 @@ export default function OrderCard() {
   };
 
   const filteredProducts = getFilteredProducts(); // Call the function to get filtered products
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+  };
+
+  const handleSelectChange = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+  const categories = [
+    { label: "All", value: "" },
+    { label: "🍹 Drinks", value: "Drinks" },
+    { label: "🍔 Burgers", value: "Burgers" },
+    { label: "🍗 Chicken", value: "Chicken" },
+    { label: "🍕 Pizza", value: "Pizza" },
+    { label: "🦞 Fish and Seafood", value: "Fish and Seafood" },
+    { label: "🥗 Salads", value: "Salads" },
+    { label: "🍰 Desserts", value: "Desserts" },
+    { label: "☕️ Coffee and Tea", value: "Coffee and Tea" },
+    { label: "🥭 Smoothies and Shakes", value: "Smoothies and Shakes" },
+    { label: "🍨 Ice Cream", value: "Ice Cream" },
+    { label: "🥐 Breakfast", value: "Breakfast" },
+    { label: "🍱 Kids Meals", value: "Kids Meals" },
+  ];
   return (
     <div>
       <h5 className="cart-title1">Our Menu</h5>
       <h1 className="cart-title2">Thousand of meals for all tastes</h1>
       <div className="searchbar">
         <div className="food-c-category">
-      <div className="dishesFood">
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("")}
+        <div className="dishesFood">
+      {isMobile ? (
+        <select
+          className="category-select"
+          value={selectedCategory}
+          onChange={handleSelectChange}
         >
-          All
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Drinks")}
-        >
-          🍹 Drinks
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Burgers")}
-        >
-          🍔 Burgers
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Chicken")}
-        >
-          🍗 Chicken
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Pizza")}
-        >
-          🍕 Pizza
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Fish and Seafood")}
-        >
-          🦞 Fish and Seafood
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Salads")}
-        >
-          🥗 Salads
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Desserts")}
-        >
-         🍰 Desserts
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Coffee and Tea")}
-        >
-          ☕️ Coffee and Tea
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Smoothies and Shakes")}
-        >
-         🥭 Smoothies and Shakes
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Ice Cream")}
-        >
-         🍨 Ice Cream
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("Breakfast")}
-        >
-         🥐 Breakfast
-        </NavLink>
-        <NavLink
-          className="Navlink-cart"
-          activeClassName="active"
-          onClick={() => setSelectedCategory("kids meals")}
-        >
-         🍱 kids meals
-        </NavLink>
-      </div>
+          {categories.map((category) => (
+            <option key={category.value} value={category.value}>
+              {category.label}
+            </option>
+          ))}
+        </select>
+      ) : (
+        categories.map((category) => (
+          <NavLink
+            key={category.value}
+            className="Navlink-cart"
+            activeClassName="active"
+            onClick={() => handleCategoryClick(category.value)}
+            to={`/category/${category.value}`}
+          >
+            {category.label}
+          </NavLink>
+        ))
+      )}
+    </div>
     </div>
       <div className="row-order">
         {filteredProducts.map((product, index) => (

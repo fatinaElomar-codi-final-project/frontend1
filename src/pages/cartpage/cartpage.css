@@ -158,7 +158,7 @@ font-size: 33px;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  height: 60px;
+  /* height: 60px; */
   font-size: 24px;
   text-decoration: none;
   text-align: center; /* Add this line */
@@ -188,7 +188,7 @@ font-size: 33px;
 .back-to-menu-btn,
 .back-to-home-btn {
 
-  height: 37px;
+  /* height: 37px; */
   font-size: 14px;
 
 }

@@ -61,9 +61,9 @@ function Nav() {
           </li>
           <li>
             <section className="menu__right">
-              <a className="loginbtnicon" href="#">
+              {/* <a className="loginbtnicon" href="#">
                 login<i class="ri-login-box-fill"></i>
-              </a>
+              </a> */}
               <div className="custom1__search">
                 <input type="search" placeholder="search item ...." />
                 <span>

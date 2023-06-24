@@ -54,7 +54,7 @@ const OneOrderCard = (props) => {
           </div>
         </div>
         <div className="cart-btn">
-        <p>Prices: {props.product.price}</p>
+        <p>Prices: {props.product.price} $</p>
 
           <a
             className="add-cart"
@@ -74,7 +74,7 @@ const OneOrderCard = (props) => {
       </div>
 
       <div className="flex-container-order">
-        <h1>Price: {parseFloat(props.product.price) * quantity}</h1>
+        <h1>Price: {parseFloat(props.product.price) * quantity} $</h1>
       </div>
       <div className="flex-container-show" style={{ padding: "20px" }}>
         <Modal

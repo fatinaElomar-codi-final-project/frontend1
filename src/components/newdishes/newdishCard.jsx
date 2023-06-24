@@ -35,7 +35,7 @@ const newdishCard = (props) => {
           </span>
         </div>
           <span className="price_product">
-          <span>  <h3 style={{color:"beige"}}>price:</h3> {price}</span> <span style={{color:"red",
+          <span>  <h3 style={{color:"beige"}}>price:</h3> {price} $</span> <span style={{color:"red",
          
         }}className='shopping_icons'>
             <i className="ri-shopping-cart-fill"></i>

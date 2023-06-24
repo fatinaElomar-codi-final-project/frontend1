@@ -114,7 +114,7 @@ export default function Menupage() {
               <h1>{data3.dishName}</h1>
               <p>{data3.type}</p>
               <p>{data3.description}</p>
-              <p>{data3.price}</p>
+              <p>{data3.price} $</p>
             </div>
           </div>
         ))}

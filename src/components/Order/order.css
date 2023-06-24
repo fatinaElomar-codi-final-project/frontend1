@@ -81,7 +81,7 @@ select {
   box-shadow: none !important;
 }
 
-.back-form {
+/* .back-form {
   width: 100%;
   height: 100vh;
   background-color: rgba(255, 255, 255, 0.6);
@@ -94,7 +94,7 @@ select {
   justify-content: center;
   align-items: center;
   z-index: 1;
-}
+} */
 
 h1.name-product {
   font-size: 25px;
@@ -158,7 +158,6 @@ h1.name-product {
   width: 283px;
 }
 
-
 .Navlink-cart {
   text-decoration: none;
   padding: 10px;
@@ -168,7 +167,8 @@ h1.name-product {
 
 .Navlink-cart.active {
   color: #c8a15e;
-  width: 252px;  border: 2px solid #877d7d;
+  width: 252px;
+  border: 2px solid #877d7d;
   margin: 8px;
 }
 
@@ -184,6 +184,23 @@ h1.name-product {
   font-size: 20px;
   text-align: center;
 }
+/* .modal.content {
+  background-color: beige;
+  display: block;
+  padding: 25px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.3);
+  width: fit-content; 
+  height: 84%;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  overflow-y: auto;
+} */
 
 .cart-title1 {
   font-size: 84px;
@@ -192,13 +209,13 @@ h1.name-product {
 }
 
 .sub-p-p1 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   padding-top: 13px;
 }
 
 .sub-h {
   color: #696161;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .category-select {
@@ -215,13 +232,11 @@ h1.name-product {
 /* Additional styles for mobile view */
 @media (max-width: 768px) {
   .category-select {
-    width: 100%;
+    width: 373px;
     height: 65px;
     font-size: 26px;
-    
   }
-  .food-c-category{
-    z-index: 99;
+  .food-c-category {
     position: sticky;
     top: 96px;
   }
@@ -256,10 +271,33 @@ h1.name-product {
     border-radius: 10px;
   }
 
-element.style {
-  position: sticky;
-  top: 97px;
-  z-index: 999;
-}
-
+  element.style {
+    position: sticky;
+    top: 97px;
+    z-index: 0;
+  }
+  .modal-dialog modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  /* .modal.content {
+  background-color: beige;
+  display: block;
+  padding: 25px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.3);
+  width: 100%; 
+  height: 84%;
+  max-width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  overflow-y: auto;
+} */
 }

@@ -16,12 +16,13 @@ import {
   DialogActions,
   Button,
   TablePagination,
+  InputAdornment,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import DashboardLayout from "../../../components/layout/dashboardLayout";
 import axios from "axios";
 import AddresourcesButton from "./dashboard";
+import { GridSearchIcon } from "@mui/x-data-grid";
 
 function Tables() {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
@@ -30,7 +31,29 @@ function Tables() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([]);
-
+  const [filteredData, setFilteredData] = useState(data);
+  const [filterText, setFilterText] = useState("");
+  
+  const handleFilterTextChange = (event) => {
+    setFilterText(event.target.value);
+  };
+  
+  useEffect(() => {
+    let filtered = data;
+  
+    if (filterText) {
+      filtered = filtered.filter((row) => {
+        const nameMatch = row.name.toLowerCase().includes(filterText.toLowerCase());
+        const categoryMatch = row.category_id.name.toLowerCase().includes(filterText.toLowerCase());
+        return nameMatch || categoryMatch;
+      });
+    }
+  
+    setFilteredData(filtered);
+  }, [data, filterText]);
+  
+  
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -135,6 +158,24 @@ function Tables() {
 
   return (
     <div className="dishhh" style={{ marginLeft: "331px" }}>
+
+<TextField
+  margin="dense"
+  // label="Search by Name or Category"
+  type="text"
+  fullWidth
+  size="small" // Set the size to "small" for a smaller input field
+  placeholder="Search..." // Add a placeholder text
+  value={filterText}
+  onChange={handleFilterTextChange}
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <GridSearchIcon />
+      </InputAdornment>
+    ),
+  }}
+/>
       {/* <DashboardLayout> */}
       <TableContainer component={Paper} sx={{ width: "98%", margin: "auto" }}>
         <Table>
@@ -167,30 +208,35 @@ function Tables() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.type}</TableCell>
-                  <TableCell>{row.description}</TableCell>
-                  <TableCell>{row.price}</TableCell>
-                  <TableCell>{row.count}</TableCell>
-                  <TableCell>{row.category_id.name}</TableCell>
-                  <TableCell>
-                  <img src={`https://restaurant-backend-1.onrender.com${row.dishImage}`} alt="dish" style={{width:"100px"}}/>
-                  </TableCell>
-                  <TableCell>
-                    <IconButton onClick={() => handleEditClick(row)}>
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton onClick={() => handleDeleteClick(row._id)}>
-                      <DeleteIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
+  {filteredData
+    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+    .map((row, index) => (
+      <TableRow key={index}>
+        <TableCell>{row.name}</TableCell>
+        <TableCell>{row.type}</TableCell>
+        <TableCell>{row.description}</TableCell>
+        <TableCell>{row.price}</TableCell>
+        <TableCell>{row.count}</TableCell>
+        <TableCell>{row.category_id.name}</TableCell>
+        <TableCell>
+          <img
+            src={`https://restaurant-backend-1.onrender.com${row.dishImage}`}
+            alt="dish"
+            style={{ width: "100px" }}
+          />
+        </TableCell>
+        <TableCell>
+          <IconButton onClick={() => handleEditClick(row)}>
+            <EditIcon />
+          </IconButton>
+          <IconButton onClick={() => handleDeleteClick(row._id)}>
+            <DeleteIcon />
+          </IconButton>
+        </TableCell>
+      </TableRow>
+    ))}
+</TableBody>
+
         </Table>
         <div
           style={{

@@ -9,7 +9,7 @@
   background-color: transparent;
 }
 
-nav  {
+nav {
   /* align-items: center; */
   height: 6rem;
   background-color: black;
@@ -25,7 +25,6 @@ nav  {
   align-items: center;
   padding-left: 1rem;
 }
-
 
 /*Styling Links*/
 .nav-links {
@@ -59,7 +58,7 @@ nav  {
   align-items: center; /* Align items vertically */
 }
 .logoparent {
-  padding-left:1.5rem;
+  padding-left: 1.5rem;
   display: flex;
   align-items: center;
   align-items: center;
@@ -92,7 +91,6 @@ nav  {
 .custom1__search span i {
   cursor: pointer;
   color: aliceblue;
- 
 }
 
 .nav-links li .a::before {
@@ -111,7 +109,7 @@ nav  {
 .buyicon {
   position: relative;
   right: 46px;
- top: 4px;
+  top: 4px;
   color: #fffbfb;
   border-radius: 7px;
   font-size: 1.4rem;
@@ -121,8 +119,8 @@ nav  {
   align-self: center;
   margin-left: 0.7vw;
 }
-.buyicon:hover{
-  color:#000000
+.buyicon:hover {
+  color: #000000;
 }
 .nav-links li .a:hover::before {
   width: 80%;
@@ -173,9 +171,9 @@ nav  {
   display: none;
 }
 
-.count-cart{
+.count-cart {
   /* position:relative; */
-  font-size:12px;
+  font-size: 12px;
 }
 
 /*Stying for small screens*/
@@ -185,8 +183,8 @@ nav  {
     display: flex;
     z-index: 1;
     width: 100vw;
-font-size: 1rem;
-top: 0;
+    font-size: 1rem;
+    top: 0;
     position: fixed;
   }
   .custom1__search {
@@ -199,14 +197,13 @@ top: 0;
     /* font-size: 1.3rem; */
     padding: 5px 15px;
     width: 194px;
-}
-.menu__right {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  padding-left: 2rem;
-
-}
+  }
+  .menu__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-left: 2rem;
+  }
   /* nav {
     height: 7rem;
     width: 100vw;
@@ -223,23 +220,23 @@ top: 0;
     right: 5%;
     top: 50%;
     transform: translate(-5%, -50%);
-    z-index: 2;
+    z-index: 999;
     transition: all 0.2s ease;
   }
-  .nav-links  {
+  .nav-links {
     position: fixed;
     background: #131418;
     height: 100vh;
     width: 100%;
     font-size: 2rem;
-   
+    z-index: 99;
+
     flex-direction: column;
     clip-path: circle(50px at 90% -20%);
     -webkit-clip-path: circle(50px at 90% -10%);
     transition: all 1s ease-out;
-    
   }
-  .second_nav{
+  .second_nav {
     pointer-events: none;
     gap: 2rem;
     font-size: 1.3rem;
@@ -278,8 +275,8 @@ top: 0;
   li.fade {
     opacity: 1;
   }
-  
-  .logo-nav{
+
+  .logo-nav {
     position: relative;
     top: 0%;
     right: 36%;

@@ -34,7 +34,7 @@ const OrderModal3 = ({ visible, onCancel, onFinish, totalPrice, cart }) => {
     form.validateFields().then((values) => {
       const order = {
         name: values.name,
-        ordertype: "delivery",
+        ordertype: "local order",
         tablenumber: values.tableNumber,
         timearrive: "",
         phonenumber: values.phoneNumber,

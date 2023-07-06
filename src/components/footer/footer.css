@@ -95,7 +95,7 @@ footer{
 }
 
 .footer-bottom-p {
-  padding: 33px;
+  padding: 18px;
 }
 @media screen and (max-width: 800px) {
   .footer-body {
@@ -107,7 +107,7 @@ footer{
     border-top: 1px solid #4c4c4c;
   }
   .footer-social-icons a {
-    font-size: 44px;
+    font-size: 30px;
 }
 
   .footer-logo {
@@ -148,5 +148,14 @@ footer{
 }
 .footer-f{
   display: none;
+}
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  gap: 14px;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: nowrap;
 }
 }

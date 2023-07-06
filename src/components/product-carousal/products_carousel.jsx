@@ -98,7 +98,7 @@ export default function ProductCarousel() {
   };
 
   return (
-    <div className="product-carousel-container" id="services">
+    <div className="product-carousel-container">
       <p className="title-c-product-carousel">Popular Desserts menu</p>
       <Slider {...slider1Settings} className="product-carousel">
         {productData.map((product, index) => (

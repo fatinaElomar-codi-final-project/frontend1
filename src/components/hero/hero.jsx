@@ -69,9 +69,9 @@ export default function Hero() {
             Satisfy Your Cravings with Our Delightful Cuisine
           </p>
           <div className="hero-buttons">
-            <a href="/cart" children="1" className="hero-btn">Order now</a>
-            <a href="/" children="1" className="hero-btn">Rate Us</a>
 
+            <span className="btn-border"></span><a href="/cart" children="1" className="hero-btn">Order now</a>
+            <a href="/" children="1" className="hero-btn">Rate Us</a>
           </div>
         </div>
         {/* <RegisterForm/> */}

@@ -12,11 +12,14 @@ const OrdersList = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://restaurant-backend-1.onrender.com/order/", {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("access_token"),
-        },
-      });
+      const response = await axios.get(
+        "https://restaurant-backend-1.onrender.com/order/",
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+          },
+        }
+      );
       setOrders(response.data.response);
       console.log(response.data.response);
     } catch (error) {
@@ -47,37 +50,117 @@ const OrdersList = () => {
         console.error(error);
       });
   };
-
+  ////////
+  const getProcessedDishes = (order) => {
+    const dishCounts = {};
+    const dishes = order.dishes.split(",");
+  
+    dishes.forEach((dish) => {
+      const trimmedDish = dish.trim();
+      const [name, price] = trimmedDish.split("-");
+      dishCounts[name] = dishCounts[name] || { count: 0, price: 0 };
+      dishCounts[name].count += 1;
+      dishCounts[name].price += parseFloat(price);
+    });
+  
+    return dishCounts;
+  };
   return (
     <div>
-      <h2>hhhhhhhhh</h2>
       <h2>Orders</h2>
       {orders && orders.length > 0 ? (
         <div className="order-list">
           {orders.map((order) => (
             <div key={order._id} className="order-card">
-                  <p><span className="brown">order type:</span> {order.ordertype}</p>
+              <table className="order-table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span className="brown">Order type:</span>
+                    </td>
+                    <td>{order.ordertype}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Name:</span>
+                    </td>
+                    <td>{order.name}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Address:</span>
+                    </td>
+                    <td>{order.address}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Table Number:</span>
+                    </td>
+                    <td>{order.tablenumber}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Time of Arrival:</span>
+                    </td>
+                    <td>
+                      {order.timearrive &&
+                        new Date(order.timearrive).toLocaleTimeString([], {
+                          hour: "numeric",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Phone Number:</span>
+                    </td>
+                    <td>{order.phonenumber}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span className="brown">Date:</span>
+                    </td>
+                    <td>{order.date}</td>
+                  </tr>
+        
+<tr>
+  <td>
+    <span className="brown">Dishes:</span>
+  </td>
+  <td>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          {/* <th>Price</th> */}
+          <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+      {Object.entries(getProcessedDishes(order)).map(([dish, { count }]) => (
+  <tr key={dish}>
+    <td>{dish}</td>
+    <td>{count}</td>
+  </tr>
+))}
+      
+      </tbody>
+    </table>
+  </td>
+</tr>
 
-               <h3><span className="brown">Name:</span> {order.name}</h3>
-    <p><span className="brown">Address:</span> {order.address}</p>
-    <p><span className="brown">Table Number:</span> {order.tablenumber}</p>
-
-    <p>
-  <span className="brown">Time of Arrival:</span>{' '}
-  {order.timearrive && new Date(order.timearrive).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true })}
-</p>
-
-    <p><span className="brown">Phone Number:</span> {order.phonenumber}</p>
-    <p><span className="brown">Date:</span> {order.date}</p>
-    <p>
-  <span className="brown">Dishes:</span>
-  {order.dishes.split(",").map((dish, index) => (
-    <span key={index}>
-      {dish.trim()}
-      {index !== order.dishes.length - 1 && <br />}
-    </span>
-  ))}
-</p>    <p><span className="brown">Total Amount:</span> {order.total_amount}$</p>
+                  <tr>
+                    {/* <td>
+                      <span className="brown"></span>
+                    </td> */}
+                    <td>
+                      <span className="brown">Total Amount:</span>
+                    </td>
+                    <td>{order.total_amount}$</td>
+                  </tr>
+                </tbody>
+              </table>
               <DeleteFilled
                 className="delete-icon"
                 onClick={() => handleDeleteClick(order._id)}

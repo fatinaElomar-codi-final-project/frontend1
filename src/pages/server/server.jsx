@@ -7,7 +7,7 @@ import Serve from "../../images/chef.png";
 
 export default function Server() {
   return (
-    <div>
+    <div  id="services">
       <h1 className="icons-main-title">Check Our Services</h1>
       <div className="server-container">
         <div className="icons-container">

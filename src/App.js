@@ -9,7 +9,7 @@ import TableDishs from "./pages/dashboard/dishs_dashboard";
 import Login from "./pages/login/login";
 import Admin from "./route/admin";
 import Visitor from "./route/visitor";
-import Home from "./pages/home /home";
+import Home from "./pages/home/home";
 import ArrivalhomePage from "./components/newdishes/newdishs";
 import Order from "./components/Order/order";
 import Newdishs from "./components/newdishes/newdishs";
@@ -17,7 +17,7 @@ import Aboutuspage from "./pages/aboutuspage/aboutuspage";
 import OrderCard from "./components/Order/orderCard";
 import Cartpage from "./pages/cartpage/cartpage";
 import ProductCarouselComponent from "./components/product-carousal/products_carousel";
-import OrdersList from "./pages/home /showorder/showorder";
+import OrdersList from "./pages/home/showorder/showorder";
 function App() {
   return (
     <Routes>

@@ -17,7 +17,7 @@ import Aboutuspage from "./pages/aboutuspage/aboutuspage";
 import OrderCard from "./components/Order/orderCard";
 import Cartpage from "./pages/cartpage/cartpage";
 import ProductCarouselComponent from "./components/product-carousal/products_carousel";
-import OrdersList from "./pages/home/showorder/showorder";
+// import OrdersList from "./pages/home/showorder/showorder";
 function App() {
   return (
     <Routes>
@@ -26,7 +26,7 @@ function App() {
       <Route path="/Newdishs" component={<Newdishs />} />
       <Route path="/cartpage" element={<Cartpage />} />
       <Route path="/productcarousel" element={<ProductCarouselComponent />} />
-      <Route path="/listorder" element={<OrdersList/>} />
+      // <Route path="/listorder" element={<OrdersList/>} />
 
       
       <Route path="/admin" element={<Admin />}>
